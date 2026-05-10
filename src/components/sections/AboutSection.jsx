@@ -45,10 +45,10 @@ const coreValues = [
 ];
 
 const stats = [
-  { value: 500, suffix: '+', label: 'תיקים שטופלו' },
-  { value: 15, suffix: '+', label: 'שנות ניסיון' },
-  { value: 98, suffix: '%', label: 'שביעות רצון' },
-  { value: 3, suffix: '', label: 'פרסים מקצועיים' },
+  { label: 'תיקים שטופלו' },
+  { label: 'שנות ניסיון' },
+  { label: 'שביעות רצון' },
+  { label: 'פרסים מקצועיים' },
 ];
 
 export default function AboutSection() {
@@ -91,7 +91,7 @@ export default function AboutSection() {
             </div>
             {/* Floating card */}
             <div className="absolute -bottom-8 -left-8 bg-deep text-paper px-8 py-6 shadow-2xl" style={{ borderRadius: '2px' }}>
-              <div className="font-playfair text-gold text-4xl font-bold leading-none">15+</div>
+              <div className="font-playfair text-gold text-4xl font-bold leading-none">X</div>
               <div className="font-assistant text-paper/70 text-sm mt-1">שנות ניסיון</div>
             </div>
             {/* Gold corner accent */}
@@ -147,11 +147,9 @@ export default function AboutSection() {
           className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gold/20 border border-gold/20"
           style={{ borderRadius: '2px' }}
         >
-          {stats.map((stat, i) => (
+          {stats.map((stat) => (
             <div key={stat.label} className="bg-paper text-center py-10 px-6">
-              <div className="font-playfair text-gold text-4xl lg:text-5xl font-bold mb-2">
-                <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-              </div>
+              <div className="font-playfair text-gold text-4xl lg:text-5xl font-bold mb-2">X</div>
               <div className="font-assistant text-deep/60 text-sm">{stat.label}</div>
             </div>
           ))}

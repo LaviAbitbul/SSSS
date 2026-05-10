@@ -128,9 +128,9 @@ export default function HeroSection() {
             className="flex items-center gap-6 mt-12"
           >
             {[
-              { num: '15+', label: 'שנות ניסיון' },
-              { num: '500+', label: 'תיקים מוצלחים' },
-              { num: '98%', label: 'שביעות רצון' },
+              { num: 'X', label: 'שנות ניסיון' },
+              { num: 'X', label: 'תיקים מוצלחים' },
+              { num: 'X', label: 'שביעות רצון' },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="font-playfair text-gold text-2xl font-bold">{stat.num}</div>
