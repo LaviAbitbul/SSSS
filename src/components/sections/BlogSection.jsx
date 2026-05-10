@@ -49,6 +49,10 @@ export default function BlogSection() {
               מאמרים <span className="text-gold">משפטיים</span>
             </h2>
             <div className="w-16 h-0.5 bg-gold mt-6" />
+            <div className="mt-4 inline-flex items-center gap-2 border border-yellow-500/50 bg-yellow-500/10 px-3 py-1.5" style={{ borderRadius: '2px' }}>
+              <span className="text-yellow-400 text-xs">⚠</span>
+              <span className="font-assistant text-yellow-400 text-xs">טיוטא — תוכן לדוגמה בלבד, יש להחליף לפני פרסום</span>
+            </div>
           </div>
           <a
             href="#contact"

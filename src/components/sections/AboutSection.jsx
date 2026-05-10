@@ -82,7 +82,7 @@ export default function AboutSection() {
           >
             <div className="relative overflow-hidden" style={{ borderRadius: '2px' }}>
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+                src="https://media.base44.com/images/public/6a007126836a528637f76d81/23bb3f543_image.png"
                 alt="עו&quot;ד נעמי גונן"
                 className="w-full h-[500px] object-cover object-top transition-transform duration-700 hover:scale-105"
               />
