@@ -43,7 +43,7 @@ export default function Navbar() {
             {/* Logo */}
             <a href="#" className="flex flex-col items-end" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
               <span className="font-playfair text-gold text-xl font-bold leading-none">נעמי גונן</span>
-              <span className="font-assistant text-paper/70 text-xs tracking-widest">עורכת דין</span>
+              <span className="font-assistant text-paper/70 text-xs tracking-widest">עורכת דין | אילת</span>
             </a>
 
             {/* Desktop Nav */}

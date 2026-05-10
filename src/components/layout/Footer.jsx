@@ -43,11 +43,11 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="mb-4">
               <div className="font-playfair text-gold text-2xl font-bold">נעמי גונן</div>
-              <div className="font-assistant text-paper/50 text-sm tracking-widest">משרד עורכי דין</div>
+              <div className="font-assistant text-paper/50 text-sm tracking-widest">עורכת דין | אילת</div>
             </div>
             <div className="w-12 h-0.5 bg-gold mb-5" />
             <p className="font-assistant text-paper/50 text-sm leading-relaxed max-w-xs mb-6">
-              משרד עורכי דין מוביל באילת, מתמחה בדיני משפחה ודיני עבודה. ניסיון של למעלה מ-15 שנה בייצוג לקוחות.
+              עורכת דין המתמחה בדיני משפחה ודיני עבודה. ניסיון של למעלה מ-15 שנה בייצוג לקוחות באילת והסביבה.
             </p>
 
             {/* Contact info */}
@@ -94,7 +94,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-paper/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="font-assistant text-paper/30 text-xs text-center md:text-right">
-            © {new Date().getFullYear()} עו"ד נעמי גונן | כל הזכויות שמורות |{' '}
+            © {new Date().getFullYear()} נעמי גונן, עורכת דין | כל הזכויות שמורות |{' '}
             <span className="block md:inline">אין באמור ייעוץ משפטי | מוסדר על ידי לשכת עורכי הדין בישראל</span>
           </div>
 

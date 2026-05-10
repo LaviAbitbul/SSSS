@@ -51,7 +51,7 @@ export default function HeroSection() {
             style={{ borderRadius: '2px' }}
           >
             <Star size={12} fill="#C5A059" className="text-gold" />
-            <span className="font-assistant text-gold text-xs tracking-[0.2em] uppercase">משרד עורכי דין | אילת</span>
+            <span className="font-assistant text-gold text-xs tracking-[0.2em] uppercase">עורכת דין | אילת</span>
             <Star size={12} fill="#C5A059" className="text-gold" />
           </motion.div>
 
@@ -81,7 +81,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="font-playfair text-paper/70 text-xl lg:text-2xl mb-4 font-medium"
           >
-            משרד עורכי דין
+            עורכת דין
           </motion.p>
 
           <motion.p
