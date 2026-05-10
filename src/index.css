@@ -37,8 +37,8 @@
   }
 
   * {
-    @apply border-border;
     box-sizing: border-box;
+    border-color: #E2E8F0;
   }
 
   html {
@@ -47,7 +47,8 @@
   }
 
   body {
-    @apply bg-paper text-deep;
+    background-color: #F8FAFC;
+    color: #0F172A;
     font-family: 'Assistant', sans-serif;
     font-size: 1.125rem;
     line-height: 1.7;

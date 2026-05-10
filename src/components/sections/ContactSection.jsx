@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 
 const practiceOptions = [
