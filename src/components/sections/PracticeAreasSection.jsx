@@ -1,102 +1,82 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Users, Baby, Scale, Home, FileText, HeartHandshake } from 'lucide-react';
+import { Users, Baby, Scale, Home, FileText, HeartHandshake, ArrowLeft } from 'lucide-react';
 
 const areas = [
-  {
-    icon: Users,
-    title: 'גירושין',
-    desc: 'ליווי מקצועי ורגיש בהליכי גירושין — מהשיחה הראשונה ועד סיום ההליך.',
-    insight: 'אפשר לעבור את התהליך הזה רגוע יותר, ברור יותר ומדויק יותר.',
-    color: '#C5A059',
-  },
-  {
-    icon: Baby,
-    title: 'אחריות הורית',
-    desc: 'קביעת הסדרי שהות, אחריות הורית והגנה על הקשר עם הילדים.',
-    insight: 'כשיש ילדים בתמונה — נדרשת רגישות מיוחדת ומבט ארוך טווח.',
-    color: '#C5A059',
-  },
-  {
-    icon: Scale,
-    title: 'מזונות',
-    desc: 'קביעת מזונות ילדים ומזונות אישה — באופן הוגן, מאוזן ובר-קיימא.',
-    insight: 'הסדר נכון הוא כזה שמרגיש נכון והוגן לכל הצדדים.',
-    color: '#C5A059',
-  },
-  {
-    icon: Home,
-    title: 'חלוקת רכוש',
-    desc: 'איזון משאבים, חלוקת נכסים, דירת המגורים וזכויות פנסיוניות.',
-    insight: 'דורש סדר, שקיפות והבנה של התמונה המלאה.',
-    color: '#C5A059',
-  },
-  {
-    icon: HeartHandshake,
-    title: 'הסכמים משפחתיים',
-    desc: 'הסכמי ממון, הסכמי חיים משותפים, הסכמי גירושין והסכמי הורות.',
-    insight: 'הסכם טוב נבנה מתוך הקשבה — לא מתוך מאבק.',
-    color: '#C5A059',
-  },
-  {
-    icon: FileText,
-    title: 'נושאים נוספים בדיני משפחה',
-    desc: 'ייצוג בהליכים נוספים בדיני משפחה — בהתאמה אישית לכל סיפור.',
-    insight: 'כל משפחה היא עולם בפני עצמו, וכל מקרה מקבל מענה מותאם.',
-    color: '#C5A059',
-  },
+  { icon: Users, title: 'גירושין', desc: 'ליווי מקצועי ורגיש בהליכי גירושין — מהשיחה הראשונה ועד סיום ההליך.' },
+  { icon: Baby, title: 'אחריות הורית', desc: 'קביעת הסדרי שהות, אחריות הורית והגנה על הקשר עם הילדים.' },
+  { icon: Scale, title: 'מזונות', desc: 'קביעת מזונות ילדים ומזונות אישה — באופן הוגן, מאוזן ובר-קיימא.' },
+  { icon: Home, title: 'חלוקת רכוש', desc: 'איזון משאבים, חלוקת נכסים, דירת המגורים וזכויות פנסיוניות.' },
+  { icon: HeartHandshake, title: 'הסכמים משפחתיים', desc: 'הסכמי ממון, הסכמי חיים משותפים, הסכמי גירושין והסכמי הורות.' },
+  { icon: FileText, title: 'נושאים נוספים', desc: 'ייצוג בהליכים נוספים בדיני משפחה — בהתאמה אישית לכל סיפור.' },
 ];
 
 export default function PracticeAreasSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="practice" className="section-padding overflow-hidden" style={{ background: '#F4F0E8' }} ref={ref}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Header */}
+    <section id="practice" className="relative py-28 lg:py-40 overflow-hidden bg-paper" ref={ref}>
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8 }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20"
         >
-          <span className="inline-block font-assistant text-gold text-xs tracking-[0.3em] uppercase mb-4 px-4 py-1.5 bg-gold/10 rounded-full">התחום שלי</span>
-          <h2 className="font-playfair text-deep text-4xl lg:text-6xl leading-tight">
-            דיני{' '}
-            <span className="text-gold italic">משפחה</span>
-          </h2>
-          <p className="font-assistant text-deep/75 text-base mt-6 max-w-xl mx-auto leading-relaxed">
-            ליווי משפטי בתחומים הרגישים והמורכבים ביותר — תוך התאמה אישית לכל סיפור
+          <div className="max-w-xl">
+            <span className="eyebrow mb-6 inline-flex">תחומי התמחות</span>
+            <h2 className="font-serif-display text-deep text-5xl lg:text-7xl font-bold leading-[1.05] mt-6">
+              דיני
+              <br />
+              <span style={{ color: '#C5A059' }}>משפחה</span>
+            </h2>
+          </div>
+          <p className="font-assistant text-deep/70 text-base lg:text-lg leading-[1.85] max-w-md">
+            ליווי משפטי בתחומים הרגישים והמורכבים ביותר — תוך התאמה אישית לכל סיפור ומציאת הפתרון הנכון לכם.
           </p>
         </motion.div>
 
-        {/* Practice Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Areas — bordered grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 border-t border-r border-deep/10">
           {areas.map((area, i) => (
-            <motion.div
+            <motion.a
               key={area.title}
-              initial={{ opacity: 0, y: 30 }}
+              href="#contact"
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group relative bg-white p-8 cursor-pointer overflow-hidden transition-all duration-500 hover:shadow-soft-lg hover:-translate-y-1 border border-transparent hover:border-gold/30 rounded-3xl"
+              transition={{ duration: 0.7, delay: i * 0.08 }}
+              className="group relative p-10 lg:p-12 border-b border-l border-deep/10 cursor-pointer overflow-hidden transition-all duration-500 hover:bg-cream"
             >
-              {/* Icon */}
-              <div className="w-12 h-12 rounded-2xl bg-cream flex items-center justify-center mb-6 group-hover:bg-gold transition-all duration-300">
-                <area.icon size={22} className="text-gold group-hover:text-deep transition-colors duration-300" />
+              {/* Hover sweep */}
+              <motion.div
+                className="absolute top-0 left-0 right-0 h-0.5 bg-gold origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-700"
+                style={{ transformOrigin: 'right' }}
+              />
+
+              <div className="flex items-start justify-between mb-8">
+                <div className="w-12 h-12 flex items-center justify-center text-deep group-hover:text-gold transition-colors duration-500">
+                  <area.icon size={28} strokeWidth={1.5} />
+                </div>
+                <span className="font-serif-display text-deep/15 text-sm tracking-[0.2em] font-medium pt-2">
+                  0{i + 1}
+                </span>
               </div>
 
-              <h3 className="font-playfair text-deep text-xl font-bold mb-3 group-hover:text-gold transition-colors duration-300">
+              <h3 className="font-serif-display text-deep text-2xl lg:text-3xl font-bold mb-3 group-hover:text-gold transition-colors duration-400">
                 {area.title}
               </h3>
-              
-              <p className="font-assistant text-deep/80 text-sm leading-relaxed mb-4">
+
+              <p className="font-assistant text-deep/65 text-base leading-[1.8] mb-8">
                 {area.desc}
               </p>
 
-              {/* Animated accent */}
-              <div className="w-8 h-0.5 bg-gold/40 group-hover:w-16 transition-all duration-500" />
-            </motion.div>
+              <div className="flex items-center gap-2 font-assistant text-deep/50 text-sm group-hover:text-gold transition-colors duration-400">
+                <span>קרא עוד</span>
+                <ArrowLeft size={14} className="transition-transform duration-400 group-hover:-translate-x-1" />
+              </div>
+            </motion.a>
           ))}
         </div>
       </div>

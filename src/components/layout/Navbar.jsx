@@ -35,18 +35,17 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? 'bg-deep/95 backdrop-blur-md shadow-2xl' : 'bg-transparent'
+          scrolled ? 'bg-paper/85 backdrop-blur-xl shadow-[0_4px_30px_-8px_rgba(12,24,49,0.08)] border-b border-deep/5' : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-              <img
-                src="https://media.base44.com/images/public/6a007126836a528637f76d81/1072ed75a_image.png"
-                alt="נעמי בל גונן"
-                className="h-14 w-auto object-contain"
-              />
+            <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center gap-3">
+              <div className="flex flex-col leading-tight">
+                <span className="font-serif-display text-deep text-xl font-bold tracking-tight">נעמי בל גונן</span>
+                <span className="font-assistant text-deep/50 text-[10px] tracking-[0.25em] uppercase">משרד עורכי דין</span>
+              </div>
             </a>
 
             {/* Desktop Nav */}
@@ -55,7 +54,7 @@ export default function Navbar() {
                 <button
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className="font-assistant text-paper/80 hover:text-gold transition-colors duration-300 text-sm font-medium relative group"
+                  className="font-assistant text-deep/75 hover:text-deep transition-colors duration-300 text-sm font-medium relative group"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 right-0 w-0 h-px bg-gold transition-all duration-300 group-hover:w-full" />
@@ -63,7 +62,7 @@ export default function Navbar() {
               ))}
               <a
                 href="tel:+972509762087"
-                className="flex items-center gap-2 bg-gold text-deep px-5 py-2.5 text-sm font-bold font-assistant transition-all duration-300 hover:bg-gold-light rounded-full hover:scale-[1.03] shadow-gold-glow"
+                className="flex items-center gap-2 bg-deep text-paper px-5 py-2.5 text-sm font-medium font-assistant transition-all duration-300 hover:bg-deep-soft rounded-full"
               >
                 <Phone size={15} />
                 050-976-2087
@@ -72,7 +71,7 @@ export default function Navbar() {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden text-paper p-2"
+              className="lg:hidden text-deep p-2"
               onClick={() => setMenuOpen(true)}
               aria-label="פתח תפריט"
             >

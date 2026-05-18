@@ -28,25 +28,23 @@ export default function ContactSection() {
     setLoading(false);
   };
 
-  const inputClass = "w-full bg-cream/50 border border-cream text-deep font-assistant text-base px-4 py-3.5 rounded-2xl focus:outline-none focus:border-gold focus:bg-white transition-all placeholder:text-deep/30";
+  const inputClass = "w-full bg-cream/60 border border-cream text-deep font-assistant text-base px-5 py-3.5 rounded-2xl focus:outline-none focus:border-gold focus:bg-white focus:ring-4 focus:ring-gold/10 transition-all placeholder:text-deep/30";
 
   return (
-    <section id="contact" className="relative section-padding overflow-hidden" style={{ background: '#FAF8F4' }} ref={ref}>
-      <div className="bg-blur-orb" style={{ width: '500px', height: '500px', background: '#C5A059', top: '20%', left: '-150px', opacity: 0.08 }} />
-
+    <section id="contact" className="relative py-28 lg:py-40 overflow-hidden bg-paper" ref={ref}>
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-2xl mx-auto mb-20"
         >
-          <span className="inline-block font-assistant text-gold text-xs tracking-[0.3em] uppercase mb-4 px-4 py-1.5 bg-gold/10 rounded-full">פנו אליי</span>
-          <h2 className="font-playfair text-deep text-4xl lg:text-6xl leading-tight">
-            צרו <span className="text-gold italic">קשר</span>
+          <span className="eyebrow mb-6 inline-flex justify-center">צרו קשר</span>
+          <h2 className="font-serif-display text-deep text-5xl lg:text-7xl font-bold leading-[1.05] mt-6">
+            בואו <span style={{ color: '#C5A059' }}>נדבר</span>
           </h2>
-          <p className="font-assistant text-deep/60 text-base lg:text-lg mt-6 max-w-lg mx-auto">
+          <p className="font-assistant text-deep/65 text-lg mt-6 leading-relaxed">
             ייעוץ ראשוני חינם. השלב הראשון הוא שיחה.
           </p>
         </motion.div>
@@ -59,20 +57,20 @@ export default function ContactSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-3"
           >
-            <div className="bg-white p-8 lg:p-10 rounded-[2rem] shadow-soft-lg">
+            <div className="bg-cream/40 border border-deep/5 p-8 lg:p-12 rounded-3xl">
               {submitted ? (
                 <div className="text-center py-16">
                   <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gold/10 flex items-center justify-center">
                     <CheckCircle size={40} className="text-gold" />
                   </div>
-                  <h3 className="font-playfair text-deep text-3xl mb-4">תודה רבה!</h3>
-                  <p className="font-assistant text-deep/60 text-base">
+                  <h3 className="font-serif-display text-deep text-4xl font-bold mb-4">תודה רבה</h3>
+                  <p className="font-assistant text-deep/65 text-base">
                     פנייתך התקבלה. אחזור אליך בהקדם האפשרי.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  <h3 className="font-playfair text-deep text-2xl mb-6">שלחו לי הודעה</h3>
+                  <h3 className="font-serif-display text-deep text-3xl font-bold mb-8">שלחו לי הודעה</h3>
 
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
@@ -144,11 +142,11 @@ export default function ContactSection() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-gold text-deep font-assistant font-bold text-base py-4 rounded-full flex items-center justify-center gap-3 hover:bg-gold-light transition-all duration-300 disabled:opacity-70 hover:scale-[1.01] shadow-gold-glow"
+                    className="w-full bg-deep text-paper font-assistant font-medium text-base py-4 rounded-full flex items-center justify-center gap-3 hover:bg-deep-soft transition-all duration-400 disabled:opacity-70"
                   >
                     {loading ? (
                       <span className="flex items-center gap-2">
-                        <span className="w-4 h-4 border-2 border-deep border-t-transparent rounded-full animate-spin" />
+                        <span className="w-4 h-4 border-2 border-paper border-t-transparent rounded-full animate-spin" />
                         שולח...
                       </span>
                     ) : (
@@ -174,8 +172,8 @@ export default function ContactSection() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="lg:col-span-2 space-y-6"
           >
-            <div className="bg-white p-8 rounded-[2rem] shadow-soft">
-              <h3 className="font-playfair text-deep text-2xl mb-6">פרטי יצירת קשר</h3>
+            <div className="bg-cream/40 border border-deep/5 p-8 rounded-3xl">
+              <h3 className="font-serif-display text-deep text-2xl font-bold mb-8">פרטי יצירת קשר</h3>
               <div className="space-y-5">
                 {[
                   { icon: Phone, label: 'טלפון', value: '050-976-2087', href: 'tel:+972509762087' },

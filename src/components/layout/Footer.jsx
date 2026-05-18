@@ -48,7 +48,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="mb-4">
-              <div className="font-playfair text-gold text-2xl font-bold">נעמי בל גונן</div>
+              <div className="font-serif-display text-paper text-3xl font-bold">נעמי בל גונן</div>
               <div className="font-assistant text-paper/50 text-sm tracking-widest">עורכת דין לדיני משפחה</div>
             </div>
             <div className="w-12 h-0.5 bg-gold mb-5" />
@@ -80,7 +80,7 @@ export default function Footer() {
           {/* Links sections */}
           {sections.map((section) => (
             <div key={section.title}>
-              <h4 className="font-playfair text-paper font-bold mb-6">{section.title}</h4>
+              <h4 className="font-serif-display text-paper text-lg font-bold mb-6">{section.title}</h4>
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.label}>
