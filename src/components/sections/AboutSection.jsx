@@ -56,6 +56,7 @@ export default function AboutSection() {
             <br />
             <span style={{ color: '#C5A059' }}>בתקופה רגישה.</span>
           </h2>
+          <div className="gold-accent" />
         </motion.div>
 
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">

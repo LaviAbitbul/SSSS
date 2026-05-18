@@ -82,9 +82,13 @@ export default function TestimonialsSection() {
           className="text-center max-w-2xl mx-auto mb-14 lg:mb-16"
         >
           <span className="eyebrow mb-6 inline-flex justify-center">מילים אמיתיות</span>
-          <h2 className="font-serif-display text-deep text-4xl lg:text-6xl font-bold leading-[1.05] mt-6">
-            הודעות <span style={{ color: '#C5A059' }}>שקיבלתי</span>
+          <h2
+            className="font-serif-display text-deep font-bold leading-[1.05] mt-6"
+            style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
+          >
+            לקוחות <span style={{ color: '#C5A059' }}>מספרים</span>
           </h2>
+          <div className="gold-accent gold-accent-center" />
           <p className="font-assistant text-deep/65 text-base lg:text-lg mt-6 leading-relaxed">
             לא ביקורות, לא פרסומות — הודעות שהגיעו אליי בסיום התהליך.
           </p>
@@ -97,8 +101,18 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.9, delay: 0.2 }}
           className="relative"
         >
-          {/* Decorative border frame */}
-          <div className="relative rounded-[2rem] lg:rounded-[2.5rem] border border-deep/10 bg-paper p-4 lg:p-6 shadow-[0_30px_70px_-30px_rgba(12,24,49,0.15)]">
+          {/* Decorative frame — luxe gold accents */}
+          <div className="relative rounded-[2rem] lg:rounded-[2.5rem] bg-white p-4 sm:p-5 lg:p-6 shadow-[0_30px_80px_-25px_rgba(12,24,49,0.18)] border border-deep/[0.06]">
+            {/* Gold corner accents */}
+            <div className="absolute top-0 right-0 w-12 h-12 lg:w-16 lg:h-16 pointer-events-none">
+              <div className="absolute top-3 right-3 lg:top-4 lg:right-4 w-full h-px bg-gradient-to-l from-gold to-transparent" />
+              <div className="absolute top-3 right-3 lg:top-4 lg:right-4 w-px h-full bg-gradient-to-b from-gold to-transparent" />
+            </div>
+            <div className="absolute bottom-0 left-0 w-12 h-12 lg:w-16 lg:h-16 pointer-events-none">
+              <div className="absolute bottom-3 left-3 lg:bottom-4 lg:left-4 w-full h-px bg-gradient-to-r from-gold to-transparent" />
+              <div className="absolute bottom-3 left-3 lg:bottom-4 lg:left-4 w-px h-full bg-gradient-to-t from-gold to-transparent" />
+            </div>
+
             <div
               className="relative rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden transition-colors duration-700"
               style={{ background: bg, minHeight: '380px' }}
@@ -124,7 +138,6 @@ export default function TestimonialsSection() {
                       <div className="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center font-assistant text-gold text-sm font-bold">
                         {current.initial}
                       </div>
-                      <div className="font-assistant text-deep/55 text-xs">לקוח/ה — סוף תהליך</div>
                     </div>
                   </motion.div>
                 </AnimatePresence>

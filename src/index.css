@@ -191,6 +191,35 @@
     background: #C5A059;
     width: 60px;
   }
+
+  /* Luxe gold accent — placed below section headlines */
+  .gold-accent {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 1.75rem;
+  }
+  .gold-accent::before {
+    content: '';
+    width: 56px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #C5A059 50%, #D4B87A 100%);
+    border-radius: 2px;
+  }
+  .gold-accent::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #C5A059;
+    box-shadow: 0 0 0 4px rgba(197,160,89,0.15);
+  }
+  .gold-accent-center {
+    justify-content: center;
+  }
+  .gold-accent-center::before {
+    width: 40px;
+  }
 }
 
 @keyframes shimmer {
@@ -298,27 +327,4 @@
 .whatsapp-float:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
-}
-
-.scroll-top-btn {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 1000;
-  width: 48px;
-  height: 48px;
-  background: #C5A059;
-  color: #0C1831;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(197, 160, 89, 0.4);
-}
-
-.scroll-top-btn:hover {
-  background: #D4B87A;
-  transform: translateY(-3px);
 }

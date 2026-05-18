@@ -90,9 +90,13 @@ export default function FAQSection() {
           className="text-center max-w-2xl mx-auto mb-16 lg:mb-20"
         >
           <span className="eyebrow mb-6 inline-flex justify-center">שאלות ותשובות</span>
-          <h2 className="font-serif-display text-deep text-4xl lg:text-6xl font-bold leading-[1.05] mt-6">
+          <h2
+            className="font-serif-display text-deep font-bold leading-[1.05] mt-6"
+            style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
+          >
             שאלות <span style={{ color: '#C5A059' }}>נפוצות</span>
           </h2>
+          <div className="gold-accent gold-accent-center" />
           <p className="font-assistant text-deep/65 text-base lg:text-lg mt-6 leading-relaxed">
             ריכזתי כאן תשובות לשאלות שאני שומעת הכי הרבה. לא מצאתם תשובה? אשמח שתפנו אליי.
           </p>

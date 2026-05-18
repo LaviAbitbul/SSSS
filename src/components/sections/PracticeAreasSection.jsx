@@ -27,11 +27,15 @@ export default function PracticeAreasSection() {
         >
           <div className="max-w-xl">
             <span className="eyebrow mb-6 inline-flex">תחומי התמחות</span>
-            <h2 className="font-serif-display text-deep text-5xl lg:text-7xl font-bold leading-[1.05] mt-6">
+            <h2
+              className="font-serif-display text-deep font-bold leading-[1.05] mt-6"
+              style={{ fontSize: 'clamp(2.25rem, 6vw, 5rem)' }}
+            >
               דיני
               <br />
               <span style={{ color: '#C5A059' }}>משפחה</span>
             </h2>
+            <div className="gold-accent" />
           </div>
           <p className="font-assistant text-deep/70 text-base lg:text-lg leading-[1.85] max-w-md">
             ליווי משפטי בתחומים הרגישים והמורכבים ביותר — תוך התאמה אישית לכל סיפור ומציאת הפתרון הנכון לכם.

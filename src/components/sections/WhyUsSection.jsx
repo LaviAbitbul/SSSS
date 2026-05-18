@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Heart, Eye, Shield, Leaf, Phone, ArrowLeft } from 'lucide-react';
+import { Heart, Eye, Shield, Leaf, MessageCircle, ArrowLeft } from 'lucide-react';
 
 const advantages = [
   {
@@ -43,11 +43,15 @@ export default function WhyUsSection() {
         >
           <div>
             <span className="eyebrow mb-6 inline-flex">הגישה שלי</span>
-            <h2 className="font-serif-display text-deep text-5xl lg:text-7xl font-bold leading-[1.05] mt-6">
+            <h2
+              className="font-serif-display text-deep font-bold leading-[1.05] mt-6"
+              style={{ fontSize: 'clamp(2.25rem, 6vw, 5rem)' }}
+            >
               למה לבחור
               <br />
               <span style={{ color: '#C5A059' }}>בליווי שלי</span>
             </h2>
+            <div className="gold-accent" />
           </div>
           <p className="font-assistant text-deep/70 text-lg leading-[1.85] lg:pb-3">
             המטרה שלי היא לא רק לייצג אתכם משפטית, אלא גם לעזור לכם לעבור את התקופה הזו עם יותר סדר, יותר הבנה ותחושת ליווי אמיתית לאורך כל הדרך.
@@ -109,11 +113,13 @@ export default function WhyUsSection() {
               </p>
             </div>
             <a
-              href="tel:+972509762087"
+              href="https://wa.me/972509762087"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 bg-gold text-deep px-7 py-4 font-assistant font-medium text-base rounded-full hover:bg-gold-light transition-all duration-400 whitespace-nowrap"
             >
-              <Phone size={17} strokeWidth={2} />
-              <span>050-976-2087</span>
+              <MessageCircle size={17} strokeWidth={2} />
+              <span>שלחו הודעה בוואטסאפ</span>
               <ArrowLeft size={16} className="transition-transform duration-400 group-hover:-translate-x-1" />
             </a>
           </div>

@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Facebook, Instagram, ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const TikTokIcon = ({ size = 14 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -25,9 +26,9 @@ const practiceLinks = [
 ];
 
 const legalLinks = [
-  { label: 'הצהרת נגישות', href: '#accessibility' },
-  { label: 'תנאי שימוש', href: '#terms' },
-  { label: 'מדיניות פרטיות', href: '#privacy' },
+  { label: 'הצהרת נגישות', to: '/accessibility' },
+  { label: 'תנאי שימוש', to: '/terms' },
+  { label: 'מדיניות פרטיות', to: '/privacy' },
 ];
 
 export default function Footer() {
@@ -129,9 +130,9 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {legalLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="font-assistant text-paper/55 hover:text-gold transition-colors text-sm">
+                  <Link to={link.to} className="font-assistant text-paper/55 hover:text-gold transition-colors text-sm">
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -144,14 +145,15 @@ export default function Footer() {
             <div>
               <h5 className="font-serif-display text-paper text-sm font-bold mb-2">הצהרת נגישות</h5>
               <p className="font-assistant text-paper/45 text-xs leading-[1.8]">
-                האתר עומד בתקן הנגישות הישראלי (ת"י 5568) ברמה AA. נעשה מאמץ מתמיד לשפר את חוויית הגלישה לכלל המשתמשים.
+                האתר עומד בתקן הנגישות הישראלי (ת"י 5568) ברמה AA.{' '}
+                <Link to="/accessibility" className="text-gold hover:underline">קרא עוד</Link>
               </p>
             </div>
             <div>
               <h5 className="font-serif-display text-paper text-sm font-bold mb-2">פנייה למרכז התמיכה</h5>
               <p className="font-assistant text-paper/45 text-xs leading-[1.8]">
-                נתקלתם בבעיית נגישות? נשמח לשמוע ולתקן. צרו קשר במייל{' '}
-                <a href="mailto:neomibel.law@gmail.com" className="text-gold hover:underline">neomibel.law@gmail.com</a>.
+                נתקלתם בבעיית נגישות? נשמח לשמוע. צרו קשר בוואטסאפ או בטלפון{' '}
+                <a href="tel:+972509762087" className="text-gold hover:underline tabular-nums">050-976-2087</a>.
               </p>
             </div>
             <div>

@@ -23,11 +23,15 @@ export default function ProcessSection() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-2xl mx-auto mb-24"
         >
-          <span className="eyebrow mb-6 inline-flex">תהליך העבודה</span>
-          <h2 className="font-serif-display text-deep text-5xl lg:text-7xl font-bold leading-[1.05] mt-6">
+          <span className="eyebrow mb-6 inline-flex justify-center">תהליך העבודה</span>
+          <h2
+            className="font-serif-display text-deep font-bold leading-[1.05] mt-6"
+            style={{ fontSize: 'clamp(2.25rem, 5.5vw, 4.5rem)' }}
+          >
             איך זה <span style={{ color: '#C5A059' }}>עובד</span>
           </h2>
-          <p className="font-assistant text-deep/65 text-lg mt-6 leading-relaxed">
+          <div className="gold-accent gold-accent-center" />
+          <p className="font-assistant text-deep/65 text-base sm:text-lg mt-6 leading-relaxed">
             תהליך ברור ושקוף — כדי שתדעו בדיוק מה צפוי לכם בכל שלב.
           </p>
         </motion.div>
