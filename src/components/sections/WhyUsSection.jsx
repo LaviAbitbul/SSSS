@@ -30,7 +30,7 @@ export default function WhyUsSection() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="why" className="relative section-padding bg-paper overflow-hidden" ref={ref}>
+    <section id="why" className="relative section-padding overflow-hidden" style={{ background: '#FAF8F4' }} ref={ref}>
       {/* Soft orbs */}
       <div className="bg-blur-orb" style={{ width: '500px', height: '500px', background: '#C5A059', bottom: '10%', right: '-150px', opacity: 0.08 }} />
 

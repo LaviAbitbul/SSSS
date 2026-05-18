@@ -34,7 +34,7 @@ export default function ProcessSection() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="process" className="section-padding bg-paper" ref={ref}>
+    <section id="process" className="section-padding overflow-hidden" style={{ background: '#FAF8F4' }} ref={ref}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <motion.div
@@ -43,11 +43,10 @@ export default function ProcessSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          <span className="font-assistant text-gold text-sm tracking-[0.3em] uppercase block mb-4">איך עובדים יחד</span>
-          <h2 className="font-playfair text-deep text-4xl lg:text-5xl">
-            תהליך <span className="text-gold">העבודה</span>
+          <span className="inline-block font-assistant text-gold text-xs tracking-[0.3em] uppercase mb-4 px-4 py-1.5 bg-gold/10 rounded-full">איך עובדים יחד</span>
+          <h2 className="font-playfair text-deep text-4xl lg:text-6xl leading-tight">
+            תהליך <span className="text-gold italic">העבודה</span>
           </h2>
-          <div className="w-16 h-0.5 bg-gold mx-auto mt-6" />
           <p className="font-assistant text-deep/60 text-base mt-6 max-w-lg mx-auto">
             תהליך ברור ושקוף — כדי שתדעו בדיוק מה צפוי לכם בכל שלב.
           </p>

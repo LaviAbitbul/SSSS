@@ -40,7 +40,7 @@ export default function TestimonialsSection() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="testimonials" className="section-padding bg-paper relative overflow-hidden" ref={ref}>
+    <section id="testimonials" className="section-padding relative overflow-hidden" style={{ background: '#F4F0E8' }} ref={ref}>
       {/* Subtle pattern */}
       <div
         className="absolute inset-0 opacity-[0.03]"
@@ -58,11 +58,10 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="font-assistant text-gold text-sm tracking-[0.3em] uppercase block mb-4">תודות אמיתיות מלקוחות</span>
-          <h2 className="font-playfair text-deep text-4xl lg:text-5xl">
-            הודעות <span className="text-gold">שקיבלתי</span>
+          <span className="inline-block font-assistant text-gold text-xs tracking-[0.3em] uppercase mb-4 px-4 py-1.5 bg-gold/10 rounded-full">תודות אמיתיות מלקוחות</span>
+          <h2 className="font-playfair text-deep text-4xl lg:text-6xl leading-tight">
+            הודעות <span className="text-gold italic">שקיבלתי</span>
           </h2>
-          <div className="w-16 h-0.5 bg-gold mx-auto mt-6" />
           <p className="font-assistant text-deep/60 text-base mt-6 max-w-lg mx-auto leading-relaxed">
             לא ביקורות, לא פרסומות — הודעות שהגיעו אליי בסיום התהליך.
           </p>

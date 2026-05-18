@@ -31,7 +31,7 @@ export default function ContactSection() {
   const inputClass = "w-full bg-cream/50 border border-cream text-deep font-assistant text-base px-4 py-3.5 rounded-2xl focus:outline-none focus:border-gold focus:bg-white transition-all placeholder:text-deep/30";
 
   return (
-    <section id="contact" className="relative section-padding bg-paper overflow-hidden" ref={ref}>
+    <section id="contact" className="relative section-padding overflow-hidden" style={{ background: '#FAF8F4' }} ref={ref}>
       <div className="bg-blur-orb" style={{ width: '500px', height: '500px', background: '#C5A059', top: '20%', left: '-150px', opacity: 0.08 }} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">

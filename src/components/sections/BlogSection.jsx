@@ -34,7 +34,7 @@ export default function BlogSection() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="blog" className="relative section-padding bg-paper overflow-hidden" ref={ref}>
+    <section id="blog" className="relative section-padding overflow-hidden" style={{ background: '#FAF8F4' }} ref={ref}>
       <div className="bg-blur-orb" style={{ width: '400px', height: '400px', background: '#172A4C', top: '10%', right: '-150px', opacity: 0.05 }} />
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}

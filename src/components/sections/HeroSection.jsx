@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Star, Instagram, Facebook } from 'lucide-react';
+import { ChevronDown, Instagram, Facebook, Phone } from 'lucide-react';
 
 const TikTokIcon = ({ size = 16 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -8,162 +8,218 @@ const TikTokIcon = ({ size = 16 }) => (
   </svg>
 );
 
-export default function HeroSection() {
-  const [shimmer, setShimmer] = useState(false);
+// Animated particle canvas
+function ParticleCanvas() {
+  const canvasRef = useRef(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setShimmer(true);
-      setTimeout(() => setShimmer(false), 1500);
-    }, 5000);
-    return () => clearInterval(interval);
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let animId;
+    let w, h;
+
+    const particles = [];
+
+    const resize = () => {
+      w = canvas.width = canvas.offsetWidth;
+      h = canvas.height = canvas.offsetHeight;
+    };
+
+    const init = () => {
+      resize();
+      for (let i = 0; i < 80; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: Math.random() * 1.5 + 0.3,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          alpha: Math.random() * 0.6 + 0.1,
+        });
+      }
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, w, h);
+      particles.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = w;
+        if (p.x > w) p.x = 0;
+        if (p.y < 0) p.y = h;
+        if (p.y > h) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(197, 160, 89, ${p.alpha})`;
+        ctx.fill();
+      });
+
+      // Draw connecting lines
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(197, 160, 89, ${0.08 * (1 - dist / 120)})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      animId = requestAnimationFrame(draw);
+    };
+
+    init();
+    draw();
+    window.addEventListener('resize', resize);
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener('resize', resize);
+    };
   }, []);
 
-  const scrollTo = (href) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden bg-deep"
-      style={{
-        backgroundImage: `url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&q=80')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      {/* Deep overlay */}
-      <div className="absolute inset-0 bg-gradient-to-l from-deep/40 via-deep/75 to-deep/95" />
-      <div className="absolute inset-0 bg-gradient-to-t from-deep via-transparent to-transparent" />
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full"
+      style={{ opacity: 0.7 }}
+    />
+  );
+}
 
-      {/* Gold accent line */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 1.5, delay: 1, ease: 'easeOut' }}
-        className="absolute top-0 left-0 right-0 h-px bg-gold origin-right"
+const scrollTo = (href) => {
+  const el = document.querySelector(href);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+};
+
+export default function HeroSection() {
+  return (
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-deep">
+      {/* Dynamic particle background */}
+      <ParticleCanvas />
+
+      {/* Radial gradient glow from center */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 60%, rgba(197,160,89,0.12) 0%, transparent 70%)' }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full pt-28 pb-20">
-        <div className="max-w-2xl">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 border border-gold/40 px-4 py-2 mb-8"
-            style={{ borderRadius: '2px' }}
-          >
-            <Star size={12} fill="#C5A059" className="text-gold" />
-            <span className="font-assistant text-gold text-xs tracking-[0.2em] uppercase">עורכת דין לדיני משפחה</span>
-            <Star size={12} fill="#C5A059" className="text-gold" />
-          </motion.div>
+      {/* Subtle horizontal lines texture */}
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(197,160,89,0.8) 60px, rgba(197,160,89,0.8) 61px)' }}
+      />
 
-          {/* Main Heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-playfair text-paper leading-tight mb-4"
-            style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}
-          >
-            עו"ד{' '}
-            <span className="text-gold">נעמי בל גונן</span>
-          </motion.h1>
+      {/* Bottom fade to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-deep to-transparent pointer-events-none" />
 
-          <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="h-0.5 bg-gold w-24 mb-6 origin-right"
-          />
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-24 flex flex-col items-center text-center">
 
-          {/* Sub-heading */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="font-playfair text-paper/70 text-xl lg:text-2xl mb-4 font-medium"
-          >
-            עורכת דין לענייני משפחה
-          </motion.p>
+        {/* Top badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-sm border border-gold/30 px-5 py-2.5 rounded-full mb-10"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+          <span className="font-assistant text-gold/90 text-xs tracking-[0.25em] uppercase">עו״ד נעמי בל גונן · דיני משפחה</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+        </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.75 }}
-            className="font-assistant text-paper/60 text-base lg:text-lg mb-10 leading-relaxed"
+        {/* GIANT headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="font-playfair text-paper font-bold leading-[1.0] mb-8 max-w-5xl"
+          style={{ fontSize: 'clamp(3rem, 8vw, 7.5rem)' }}
+        >
+          לא רק עורכת דין —{' '}
+          <span
+            className="block"
+            style={{
+              background: 'linear-gradient(135deg, #C5A059 0%, #D4B87A 40%, #A8833A 70%, #C5A059 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
           >
-            ליווי רגיש ומקצועי בתהליכי גירושין, אחריות הורית,<br />
-            מזונות, חלוקת רכוש והסכמים משפחתיים.
-          </motion.p>
+            מישהי שתהיה לצידך.
+          </span>
+        </motion.h1>
 
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="flex flex-col sm:flex-row gap-4"
+        {/* Sub */}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.75 }}
+          className="font-assistant text-paper/60 text-lg lg:text-xl max-w-2xl leading-relaxed mb-12"
+        >
+          ליווי רגיש ומקצועי בגירושין, אחריות הורית, מזונות וחלוקת רכוש — עם סדר, ביטחון ושקיפות.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="flex flex-col sm:flex-row gap-4 items-center"
+        >
+          <a
+            href="tel:+972509762087"
+            className="group flex items-center gap-3 bg-gold text-deep font-assistant font-bold text-base px-8 py-4 rounded-full hover:bg-gold-light transition-all duration-300 hover:scale-[1.03] animate-gold-pulse"
           >
+            <Phone size={17} />
+            לשיחת ייעוץ אישית
+          </a>
+          <button
+            onClick={() => scrollTo('#about')}
+            className="font-assistant text-paper/70 text-sm hover:text-gold transition-colors flex items-center gap-2 group"
+          >
+            <span className="w-8 h-px bg-paper/30 group-hover:bg-gold transition-colors" />
+            קצת עליי
+          </button>
+        </motion.div>
+
+        {/* Socials */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.4 }}
+          className="flex items-center gap-3 mt-16"
+        >
+          {[
+            { icon: Instagram, href: 'https://www.instagram.com/neomi.bel.law', label: 'Instagram' },
+            { icon: TikTokIcon, href: 'https://www.tiktok.com/@neomi.bel.law', label: 'TikTok' },
+            { icon: Facebook, href: 'https://www.facebook.com/share/15tgCN25iEh/?mibextid=wwXIfr', label: 'Facebook' },
+          ].map((s) => (
             <a
-              href="tel:+972509762087"
-              className={`inline-flex items-center justify-center gap-2 px-8 py-4 font-assistant font-bold text-deep text-base transition-all duration-300 hover:scale-[1.02] ${
-                shimmer ? 'gold-shimmer' : 'bg-gold'
-              }`}
-              style={{ borderRadius: '2px' }}
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              className="w-10 h-10 rounded-full border border-paper/15 bg-white/5 flex items-center justify-center text-paper/50 hover:bg-gold hover:text-deep hover:border-gold transition-all duration-300"
             >
-              ✦ לייעוץ ראשוני חינם
+              <s.icon size={15} />
             </a>
-
-            <button
-              onClick={() => scrollTo('#about')}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 font-assistant font-semibold text-paper text-base border border-paper/30 hover:border-gold hover:text-gold transition-all duration-300"
-              style={{ borderRadius: '2px' }}
-            >
-              קצת עליי
-            </button>
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }}
-            className="flex items-center gap-4 mt-12"
-          >
-            <span className="font-assistant text-paper/40 text-xs tracking-widest">עקבו אחריי</span>
-            <div className="w-8 h-px bg-paper/20" />
-            {[
-              { icon: Instagram, href: 'https://www.instagram.com/neomi.bel.law', label: 'Instagram' },
-              { icon: TikTokIcon, href: 'https://www.tiktok.com/@neomi.bel.law', label: 'TikTok' },
-              { icon: Facebook, href: 'https://www.facebook.com/share/15tgCN25iEh/?mibextid=wwXIfr', label: 'Facebook' },
-            ].map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-                className="w-9 h-9 border border-paper/20 flex items-center justify-center text-paper/60 hover:border-gold hover:text-gold transition-all duration-300"
-                style={{ borderRadius: '2px' }}
-              >
-                <s.icon size={15} />
-              </a>
-            ))}
-          </motion.div>
-        </div>
+          ))}
+        </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll arrow */}
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 8, 0] }}
-        transition={{ opacity: { delay: 1.5, duration: 0.5 }, y: { duration: 2, repeat: Infinity, ease: 'easeInOut' } }}
+        transition={{ opacity: { delay: 1.8, duration: 0.5 }, y: { duration: 2, repeat: Infinity, ease: 'easeInOut' } }}
         onClick={() => scrollTo('#about')}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-paper/40 hover:text-gold transition-colors"
-        aria-label="גלול למטה"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-paper/30 hover:text-gold transition-colors"
       >
         <ChevronDown size={30} />
       </motion.button>
