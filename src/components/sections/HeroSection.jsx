@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Phone, ArrowLeft, Heart, Eye, Leaf, Sparkles, Award, Star } from 'lucide-react';
+import AnimatedNumber from '@/components/ui/AnimatedNumber';
 
 const stats = [
   { icon: Eye, num: '20+', label: 'שנות ניסיון' },
@@ -139,7 +140,7 @@ export default function HeroSection() {
                     </div>
                   </div>
                   <div className="font-assistant text-deep text-2xl sm:text-3xl lg:text-4xl font-bold leading-none mb-1.5 tabular-nums tracking-tight">
-                    {s.num}
+                    <AnimatedNumber value={s.num} duration={2} delay={1.5 + i * 0.15} />
                   </div>
                   <div className="font-assistant text-deep/55 text-[10px] sm:text-xs tracking-[0.05em]">
                     {s.label}
