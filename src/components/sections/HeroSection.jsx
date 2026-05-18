@@ -43,23 +43,23 @@ export default function HeroSection() {
         <div className="absolute top-0 bottom-0 right-[8%] w-px bg-gradient-to-b from-transparent via-deep/10 to-transparent hidden lg:block" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-16 lg:py-32">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-28 sm:pt-32 pb-16 lg:py-32">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
-          {/* Text */}
-          <div className="lg:col-span-7 order-2 lg:order-1">
+          {/* Text — order 1 on mobile (first), 1 on desktop */}
+          <div className="lg:col-span-7 order-1">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="mb-8"
+              className="mb-6 sm:mb-8"
             >
               <span className="eyebrow">עו״ד נעמי בל גונן</span>
             </motion.div>
 
             <h1
-              className="font-serif-display text-deep font-bold mb-7"
-              style={{ fontSize: 'clamp(2.25rem, 6vw, 5.5rem)', lineHeight: '1.05' }}
+              className="font-serif-display text-deep font-bold mb-6 sm:mb-7"
+              style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', lineHeight: '1.05' }}
             >
               <RevealLine delay={0.2}>לא רק עורכת דין —</RevealLine>
               <RevealLine delay={0.4} className="italic">
@@ -91,7 +91,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.85 }}
-              className="font-assistant text-deep/70 text-base lg:text-xl leading-relaxed mb-10 max-w-xl"
+              className="font-assistant text-deep/70 text-base lg:text-xl leading-relaxed mb-8 sm:mb-10 max-w-xl"
             >
               ליווי רגיש ומקצועי בגירושין, אחריות הורית, מזונות וחלוקת רכוש — עם סדר, ביטחון ושקיפות לאורך כל הדרך.
             </motion.p>
@@ -100,7 +100,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-14"
+              className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-10 sm:mb-14"
             >
               <a
                 href="tel:+972509762087"
@@ -149,20 +149,21 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Portrait with decorative elements */}
+          {/* Portrait — order 2 on mobile (after text), 2 on desktop */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-5 order-1 lg:order-2 relative"
+            className="lg:col-span-5 order-2 relative"
           >
-            <div className="relative">
+            {/* Wrapper with padding so badges don't get clipped */}
+            <div className="relative px-3 sm:px-6 lg:px-8 py-4 lg:py-6">
               {/* Gold frame outline */}
               <motion.div
                 initial={{ opacity: 0, x: -20, y: 20 }}
                 animate={{ opacity: 1, x: 0, y: 0 }}
                 transition={{ duration: 1, delay: 0.6 }}
-                className="absolute -bottom-5 -left-5 lg:-bottom-7 lg:-left-7 w-full h-full border border-gold rounded-[2rem] pointer-events-none hidden md:block"
+                className="absolute inset-x-3 sm:inset-x-6 lg:inset-x-8 inset-y-4 lg:inset-y-6 translate-x-[-12px] translate-y-[12px] lg:translate-x-[-20px] lg:translate-y-[20px] border border-gold rounded-[2rem] pointer-events-none hidden md:block"
               />
 
               {/* Decorative dotted pattern - top right */}
@@ -170,7 +171,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 0.5, scale: 1 }}
                 transition={{ duration: 0.8, delay: 1.1 }}
-                className="absolute -top-8 -right-8 w-28 h-28 hidden md:block pointer-events-none"
+                className="absolute -top-2 -right-2 w-24 h-24 lg:w-28 lg:h-28 hidden md:block pointer-events-none"
                 style={{
                   backgroundImage: 'radial-gradient(circle, #C5A059 1.5px, transparent 1.5px)',
                   backgroundSize: '14px 14px',
@@ -178,67 +179,60 @@ export default function HeroSection() {
               />
 
               {/* Photo */}
-              <div className="relative rounded-[2rem] overflow-hidden bg-deep shadow-[0_30px_80px_-20px_rgba(12,24,49,0.4)]" style={{ aspectRatio: '4/5' }}>
+              <div
+                className="relative rounded-[2rem] overflow-hidden bg-deep shadow-[0_30px_80px_-20px_rgba(12,24,49,0.4)]"
+                style={{ aspectRatio: '4/5' }}
+              >
                 <img
                   src="https://media.base44.com/images/public/6a007126836a528637f76d81/781d34657_image.png"
                   alt="עו״ד נעמי בל גונן"
                   className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-deep/40 via-transparent to-transparent" />
-
-                {/* Floating badge - top left: Star rating */}
-                <motion.div
-                  initial={{ opacity: 0, x: -20, y: -10 }}
-                  animate={{ opacity: 1, x: 0, y: 0 }}
-                  transition={{ duration: 0.7, delay: 1.2 }}
-                  className="absolute top-5 left-5 bg-white/95 backdrop-blur-md rounded-full pl-4 pr-3 py-2 flex items-center gap-2 shadow-[0_8px_25px_-8px_rgba(12,24,49,0.3)]"
-                >
-                  <div className="flex items-center gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={11} fill="#C5A059" stroke="#C5A059" />
-                    ))}
-                  </div>
-                  <span className="font-assistant text-deep text-xs font-bold tabular-nums">5.0</span>
-                </motion.div>
-
-                {/* Floating tag - bottom right: Specialty */}
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.7, delay: 1.35 }}
-                  className="absolute bottom-5 right-5 bg-gold/95 backdrop-blur-md rounded-full px-4 py-2 flex items-center gap-2 shadow-[0_8px_25px_-8px_rgba(197,160,89,0.5)]"
-                >
-                  <Sparkles size={13} className="text-deep" strokeWidth={2.5} />
-                  <span className="font-assistant text-deep text-xs font-bold">דיני משפחה · אילת</span>
-                </motion.div>
-
-                {/* Floating mini-card - left middle: Award */}
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 1.5 }}
-                  className="absolute top-1/2 -left-4 lg:-left-6 -translate-y-1/2 bg-white rounded-2xl p-3 shadow-[0_15px_40px_-10px_rgba(12,24,49,0.3)] hidden sm:block"
-                >
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 rounded-xl bg-deep flex items-center justify-center flex-shrink-0">
-                      <Award size={18} className="text-gold" strokeWidth={1.8} />
-                    </div>
-                    <div className="pr-1">
-                      <div className="font-assistant text-deep text-xs font-bold leading-tight">לשכת עוה״ד</div>
-                      <div className="font-assistant text-deep/55 text-[10px] leading-tight">חברה רשומה</div>
-                    </div>
-                  </div>
-                </motion.div>
               </div>
 
-              {/* Floating gold dot accent */}
+              {/* Floating badge - top left: Star rating (positioned relative to wrapper, not photo) */}
               <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.6, delay: 1.6, type: 'spring', stiffness: 200 }}
-                className="absolute -bottom-3 right-12 w-6 h-6 rounded-full bg-gold hidden md:flex items-center justify-center shadow-[0_8px_20px_-4px_rgba(197,160,89,0.6)]"
+                initial={{ opacity: 0, y: -10, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.7, delay: 1.2 }}
+                className="absolute top-0 left-0 sm:top-2 sm:left-2 bg-white rounded-full pl-3 pr-2.5 py-1.5 sm:pl-4 sm:pr-3 sm:py-2 flex items-center gap-1.5 sm:gap-2 shadow-[0_12px_30px_-8px_rgba(12,24,49,0.25)] border border-deep/5 z-20"
               >
-                <div className="w-2 h-2 rounded-full bg-paper" />
+                <div className="flex items-center gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={10} fill="#C5A059" stroke="#C5A059" className="sm:w-[11px] sm:h-[11px]" />
+                  ))}
+                </div>
+                <span className="font-assistant text-deep text-[11px] sm:text-xs font-bold tabular-nums">5.0</span>
+              </motion.div>
+
+              {/* Floating tag - bottom right: Specialty */}
+              <motion.div
+                initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.7, delay: 1.35 }}
+                className="absolute bottom-0 right-0 sm:bottom-2 sm:right-2 bg-gold rounded-full px-3 py-1.5 sm:px-4 sm:py-2 flex items-center gap-1.5 sm:gap-2 shadow-[0_12px_30px_-8px_rgba(197,160,89,0.5)] z-20"
+              >
+                <Sparkles size={11} className="text-deep sm:w-[13px] sm:h-[13px]" strokeWidth={2.5} />
+                <span className="font-assistant text-deep text-[11px] sm:text-xs font-bold whitespace-nowrap">דיני משפחה · אילת</span>
+              </motion.div>
+
+              {/* Floating mini-card - bottom left: Award */}
+              <motion.div
+                initial={{ opacity: 0, x: -20, scale: 0.9 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                transition={{ duration: 0.8, delay: 1.5 }}
+                className="absolute bottom-8 left-0 sm:bottom-16 sm:-left-2 lg:-left-4 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_15px_40px_-10px_rgba(12,24,49,0.3)] border border-deep/5 hidden sm:block z-20"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-deep flex items-center justify-center flex-shrink-0">
+                    <Award size={16} className="text-gold sm:w-[18px] sm:h-[18px]" strokeWidth={1.8} />
+                  </div>
+                  <div className="pr-1">
+                    <div className="font-assistant text-deep text-xs font-bold leading-tight">לשכת עוה״ד</div>
+                    <div className="font-assistant text-deep/55 text-[10px] leading-tight">חברה רשומה</div>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </motion.div>

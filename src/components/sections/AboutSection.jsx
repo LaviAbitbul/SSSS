@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { Quote, Sparkles } from 'lucide-react';
 
 const paragraphs = [
   {
@@ -24,12 +25,19 @@ const paragraphs = [
   },
 ];
 
+const values = [
+  'אמינות',
+  'רגישות',
+  'מקצועיות',
+  'שקיפות',
+];
+
 export default function AboutSection() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section id="about" className="relative py-28 lg:py-40 overflow-hidden bg-paper" ref={sectionRef}>
+    <section id="about" className="relative py-20 sm:py-28 lg:py-40 overflow-hidden bg-paper" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
         {/* Eyebrow + header */}
@@ -37,10 +45,13 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-20 max-w-3xl"
+          className="mb-14 sm:mb-20 max-w-3xl"
         >
           <span className="eyebrow mb-6 inline-flex">קצת עליי</span>
-          <h2 className="font-serif-display text-deep text-5xl lg:text-7xl font-bold leading-[1.05] mt-6">
+          <h2
+            className="font-serif-display text-deep font-bold leading-[1.05] mt-6"
+            style={{ fontSize: 'clamp(2.25rem, 6vw, 5rem)' }}
+          >
             ליווי אנושי
             <br />
             <span style={{ color: '#C5A059' }}>בתקופה רגישה.</span>
@@ -49,7 +60,7 @@ export default function AboutSection() {
 
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 
-          {/* Portrait — sticky */}
+          {/* Quote Card — sticky on desktop */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -57,20 +68,54 @@ export default function AboutSection() {
             className="lg:col-span-5 lg:sticky lg:top-32"
           >
             <div className="relative">
-              <div className="absolute -top-4 -right-4 w-24 h-24 border border-gold/30 rounded-3xl pointer-events-none" />
-              <div className="relative rounded-3xl overflow-hidden bg-deep shadow-[0_25px_60px_-20px_rgba(12,24,49,0.3)]" style={{ aspectRatio: '4/5' }}>
-                <img
-                  src="https://media.base44.com/images/public/6a007126836a528637f76d81/781d34657_image.png"
-                  alt="עו״ד נעמי בל גונן"
-                  className="w-full h-full object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-deep/40 via-transparent to-transparent" />
+              {/* Decorative gold corner frame */}
+              <div className="absolute -top-4 -right-4 w-20 h-20 border-t border-r border-gold/40 rounded-tr-3xl pointer-events-none" />
+              <div className="absolute -bottom-4 -left-4 w-20 h-20 border-b border-l border-gold/40 rounded-bl-3xl pointer-events-none" />
 
-                {/* Quote overlay */}
-                <div className="absolute bottom-0 right-0 left-0 p-6 lg:p-8">
-                  <div className="font-serif-display text-paper text-base lg:text-lg leading-relaxed">
-                    <span className="font-serif-display text-gold text-3xl leading-none">״</span>
-                    גם בתוך חוסר הוודאות, אפשר לעבור את התהליך בצורה אחרת.
+              {/* Main quote card */}
+              <div className="relative rounded-3xl overflow-hidden bg-deep p-8 sm:p-10 lg:p-12 shadow-[0_25px_60px_-20px_rgba(12,24,49,0.3)]">
+                {/* Soft gold glow background */}
+                <div
+                  className="absolute inset-0 opacity-50"
+                  style={{
+                    background:
+                      'radial-gradient(circle at 20% 20%, rgba(197,160,89,0.18) 0%, transparent 55%), radial-gradient(circle at 80% 80%, rgba(197,160,89,0.10) 0%, transparent 50%)',
+                  }}
+                />
+
+                <div className="relative z-10">
+                  {/* Quote mark */}
+                  <Quote size={48} className="text-gold mb-6" strokeWidth={1.2} style={{ transform: 'scaleX(-1)' }} />
+
+                  {/* Headline quote */}
+                  <p className="font-serif-display text-paper text-2xl sm:text-3xl lg:text-[2rem] leading-[1.3] font-medium mb-8">
+                    גם בתוך חוסר הוודאות, אפשר לעבור את התהליך{' '}
+                    <span style={{ color: '#C5A059' }} className="italic">בצורה אחרת.</span>
+                  </p>
+
+                  {/* Divider */}
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="h-px w-12 bg-gold" />
+                    <Sparkles size={14} className="text-gold" />
+                    <div className="h-px flex-1 bg-gold/20" />
+                  </div>
+
+                  {/* Signature */}
+                  <div className="mb-8">
+                    <div className="font-serif-display text-paper text-lg font-bold">נעמי בל גונן</div>
+                    <div className="font-assistant text-paper/60 text-xs tracking-[0.2em] uppercase mt-1">עורכת דין לדיני משפחה</div>
+                  </div>
+
+                  {/* Values chips */}
+                  <div className="flex flex-wrap gap-2">
+                    {values.map((v) => (
+                      <span
+                        key={v}
+                        className="font-assistant text-paper/80 text-xs sm:text-sm px-3.5 py-1.5 rounded-full border border-paper/15 bg-paper/[0.04] backdrop-blur-sm"
+                      >
+                        {v}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
