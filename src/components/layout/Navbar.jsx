@@ -60,8 +60,7 @@ export default function Navbar() {
               ))}
               <a
                 href="tel:+972509762087"
-                className="flex items-center gap-2 bg-gold text-deep px-5 py-2.5 text-sm font-bold font-assistant transition-all duration-300 hover:bg-gold-light"
-                style={{ borderRadius: '2px' }}
+                className="flex items-center gap-2 bg-gold text-deep px-5 py-2.5 text-sm font-bold font-assistant transition-all duration-300 hover:bg-gold-light rounded-full hover:scale-[1.03] shadow-gold-glow"
               >
                 <Phone size={15} />
                 050-976-2087
@@ -117,8 +116,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navLinks.length * 0.07 + 0.1, duration: 0.5 }}
                 href="tel:+972509762087"
-                className="mt-4 flex items-center gap-2 bg-gold text-deep px-8 py-3 font-bold font-assistant text-lg"
-                style={{ borderRadius: '2px' }}
+                className="mt-4 flex items-center gap-2 bg-gold text-deep px-8 py-3 font-bold font-assistant text-lg rounded-full"
               >
                 <Phone size={18} />
                 050-976-2087

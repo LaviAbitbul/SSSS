@@ -34,8 +34,9 @@ export default function BlogSection() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="blog" className="section-padding bg-deep" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section id="blog" className="relative section-padding bg-paper overflow-hidden" ref={ref}>
+      <div className="bg-blur-orb" style={{ width: '400px', height: '400px', background: '#172A4C', top: '10%', right: '-150px', opacity: 0.05 }} />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -44,20 +45,18 @@ export default function BlogSection() {
           className="flex flex-col lg:flex-row items-start lg:items-end justify-between mb-16 gap-6"
         >
           <div>
-            <span className="font-assistant text-gold text-sm tracking-[0.3em] uppercase block mb-4">ידע הוא כוח</span>
-            <h2 className="font-playfair text-paper text-4xl lg:text-5xl">
-              מאמרים <span className="text-gold">משפטיים</span>
+            <span className="inline-block font-assistant text-gold text-xs tracking-[0.3em] uppercase mb-4 px-4 py-1.5 bg-gold/10 rounded-full">ידע הוא כוח</span>
+            <h2 className="font-playfair text-deep text-4xl lg:text-6xl leading-tight">
+              מאמרים <span className="text-gold italic">משפטיים</span>
             </h2>
-            <div className="w-16 h-0.5 bg-gold mt-6" />
-            <div className="mt-4 inline-flex items-center gap-2 border border-gold/40 bg-gold/5 px-3 py-1.5" style={{ borderRadius: '2px' }}>
+            <div className="mt-4 inline-flex items-center gap-2 border border-gold/30 bg-gold/5 px-3 py-1.5 rounded-full">
               <span className="text-gold text-xs">✦</span>
               <span className="font-assistant text-gold/80 text-xs">מאמרים לדוגמה — תוכן בהכנה</span>
             </div>
           </div>
           <a
             href="#contact"
-            className="font-assistant text-gold border border-gold/40 px-6 py-3 text-sm hover:bg-gold hover:text-deep transition-all duration-300 flex-shrink-0"
-            style={{ borderRadius: '2px' }}
+            className="font-assistant text-deep border border-deep/20 px-6 py-3 text-sm rounded-full hover:bg-deep hover:text-paper transition-all duration-300 flex-shrink-0"
           >
             לכל המאמרים
             <ArrowLeft size={14} className="inline mr-2" />
@@ -72,37 +71,35 @@ export default function BlogSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="group cursor-pointer bg-action border border-paper/5 overflow-hidden hover:border-gold/30 transition-all duration-500"
-              style={{ borderRadius: '2px' }}
+              className="group cursor-pointer bg-white rounded-3xl shadow-soft hover:shadow-soft-lg overflow-hidden transition-all duration-500 hover:-translate-y-2"
             >
               {/* Image */}
-              <div className="relative overflow-hidden h-48">
+              <div className="relative overflow-hidden h-52">
                 <img
                   src={article.img}
                   alt={article.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-action via-transparent to-transparent" />
                 {/* Category badge */}
-                <div className="absolute top-4 right-4 bg-gold text-deep px-3 py-1 text-xs font-assistant font-bold" style={{ borderRadius: '2px' }}>
+                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-deep px-3 py-1.5 text-xs font-assistant font-bold rounded-full shadow-sm">
                   {article.category}
                 </div>
               </div>
 
               {/* Content */}
               <div className="p-6">
-                <div className="flex items-center gap-3 text-paper/40 text-xs font-assistant mb-4">
+                <div className="flex items-center gap-3 text-deep/40 text-xs font-assistant mb-3">
                   <Clock size={12} />
                   <span>{article.readTime}</span>
                   <span>·</span>
                   <span>{article.date}</span>
                 </div>
 
-                <h3 className="font-playfair text-paper text-xl font-bold mb-3 group-hover:text-gold transition-colors duration-300 leading-snug">
+                <h3 className="font-playfair text-deep text-xl font-bold mb-3 group-hover:text-gold transition-colors duration-300 leading-snug">
                   {article.title}
                 </h3>
 
-                <p className="font-assistant text-paper/60 text-sm leading-relaxed mb-6">
+                <p className="font-assistant text-deep/65 text-sm leading-relaxed mb-5">
                   {article.excerpt}
                 </p>
 

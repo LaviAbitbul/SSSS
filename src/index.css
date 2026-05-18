@@ -6,32 +6,34 @@
 
 @layer base {
   :root {
-    --background: 248 250 252;
-    --foreground: 15 23 42;
+    --background: 250 248 244;
+    --foreground: 12 24 49;
     --card: 255 255 255;
-    --card-foreground: 15 23 42;
+    --card-foreground: 12 24 49;
     --popover: 255 255 255;
-    --popover-foreground: 15 23 42;
-    --primary: 15 23 42;
-    --primary-foreground: 248 250 252;
-    --secondary: 30 41 59;
-    --secondary-foreground: 248 250 252;
-    --muted: 241 245 249;
+    --popover-foreground: 12 24 49;
+    --primary: 12 24 49;
+    --primary-foreground: 250 248 244;
+    --secondary: 23 42 76;
+    --secondary-foreground: 250 248 244;
+    --muted: 244 240 232;
     --muted-foreground: 100 116 139;
     --accent: 197 160 89;
-    --accent-foreground: 15 23 42;
+    --accent-foreground: 12 24 49;
     --destructive: 239 68 68;
-    --destructive-foreground: 248 250 252;
-    --border: 226 232 240;
-    --input: 226 232 240;
+    --destructive-foreground: 250 248 244;
+    --border: 232 226 215;
+    --input: 232 226 215;
     --ring: 197 160 89;
-    --radius: 0.25rem;
+    --radius: 1rem;
 
-    /* Custom tokens */
-    --deep: #0F172A;
+    /* Custom tokens — modern navy + warm cream */
+    --deep: #0C1831;
+    --deep-soft: #172A4C;
     --gold: #C5A059;
-    --paper: #F8FAFC;
-    --action: #1E293B;
+    --paper: #FAF8F4;
+    --cream: #F4F0E8;
+    --action: #172A4C;
     --gold-light: #D4B87A;
     --gold-dark: #A8833A;
   }
@@ -47,8 +49,8 @@
   }
 
   body {
-    background-color: #F8FAFC;
-    color: #0F172A;
+    background-color: #FAF8F4;
+    color: #0C1831;
     font-family: 'Assistant', sans-serif;
     font-size: 1.125rem;
     line-height: 1.7;
@@ -73,14 +75,36 @@
     font-family: 'Assistant', sans-serif;
   }
 
-  .text-deep { color: #0F172A; }
+  .text-deep { color: #0C1831; }
   .text-gold { color: #C5A059; }
-  .text-paper { color: #F8FAFC; }
-  .bg-deep { background-color: #0F172A; }
+  .text-paper { color: #FAF8F4; }
+  .text-cream { color: #F4F0E8; }
+  .bg-deep { background-color: #0C1831; }
+  .bg-deep-soft { background-color: #172A4C; }
   .bg-gold { background-color: #C5A059; }
-  .bg-paper { background-color: #F8FAFC; }
-  .bg-action { background-color: #1E293B; }
+  .bg-paper { background-color: #FAF8F4; }
+  .bg-cream { background-color: #F4F0E8; }
+  .bg-action { background-color: #172A4C; }
   .border-gold { border-color: #C5A059; }
+
+  .shadow-soft {
+    box-shadow: 0 10px 40px -10px rgba(12, 24, 49, 0.08), 0 4px 12px -4px rgba(12, 24, 49, 0.04);
+  }
+  .shadow-soft-lg {
+    box-shadow: 0 25px 60px -15px rgba(12, 24, 49, 0.15), 0 10px 25px -8px rgba(12, 24, 49, 0.06);
+  }
+  .shadow-gold-glow {
+    box-shadow: 0 0 0 1px rgba(197, 160, 89, 0.3), 0 15px 40px -10px rgba(197, 160, 89, 0.35);
+  }
+
+  /* Animated gradient orb backgrounds */
+  .bg-blur-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(80px);
+    opacity: 0.4;
+    pointer-events: none;
+  }
 
   .gold-shimmer {
     background: linear-gradient(90deg, #C5A059, #D4B87A, #C5A059);
@@ -158,7 +182,7 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0F172A;
+  background: #0C1831;
 }
 ::-webkit-scrollbar-thumb {
   background: #C5A059;
@@ -168,7 +192,37 @@
 /* Selection */
 ::selection {
   background: #C5A059;
-  color: #0F172A;
+  color: #0C1831;
+}
+
+/* Infinite marquee for testimonials carousel */
+@keyframes marquee-rtl {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+.animate-marquee {
+  animation: marquee-rtl 50s linear infinite;
+}
+.animate-marquee-pause:hover {
+  animation-play-state: paused;
+}
+
+/* Slow float */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+/* Gold pulse glow on CTA */
+@keyframes gold-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.5), 0 10px 30px -5px rgba(197, 160, 89, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(197, 160, 89, 0), 0 15px 40px -5px rgba(197, 160, 89, 0.5); }
+}
+.animate-gold-pulse {
+  animation: gold-pulse 2.5s ease-in-out infinite;
 }
 
 /* WhatsApp float button */
@@ -201,8 +255,8 @@
   width: 48px;
   height: 48px;
   background: #C5A059;
-  color: #0F172A;
-  border-radius: 4px;
+  color: #0C1831;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
