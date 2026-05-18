@@ -88,7 +88,7 @@ export default function AboutSection() {
                 className="relative pr-10 lg:pr-14"
               >
                 {/* Number */}
-                <div className="absolute right-0 top-0 font-serif-display text-gold/60 text-xs tracking-[0.2em] font-medium">
+                <div className="absolute right-0 top-0 font-assistant text-gold/70 text-xs tracking-[0.25em] font-semibold tabular-nums">
                   {p.num}
                 </div>
                 {/* Vertical line */}

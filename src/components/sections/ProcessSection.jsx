@@ -65,7 +65,7 @@ export default function ProcessSection() {
                   </div>
                   {/* Number badge */}
                   <div className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-deep flex items-center justify-center">
-                    <span className="font-assistant text-paper text-xs font-bold">{i + 1}</span>
+                    <span className="font-assistant text-paper text-xs font-bold tabular-nums">{i + 1}</span>
                   </div>
                 </motion.div>
 
@@ -94,7 +94,7 @@ export default function ProcessSection() {
                   <step.icon size={22} className="text-gold" strokeWidth={1.5} />
                 </div>
                 <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-deep flex items-center justify-center">
-                  <span className="font-assistant text-paper text-[10px] font-bold">{i + 1}</span>
+                  <span className="font-assistant text-paper text-[10px] font-bold tabular-nums">{i + 1}</span>
                 </div>
               </div>
               <div className="pt-1">

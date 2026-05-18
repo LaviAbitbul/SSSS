@@ -72,7 +72,7 @@ export default function WhyUsSection() {
                   <div className="w-14 h-14 rounded-2xl bg-deep/5 group-hover:bg-gold flex items-center justify-center transition-all duration-500">
                     <adv.icon size={22} className="text-deep group-hover:text-paper transition-colors duration-500" strokeWidth={1.5} />
                   </div>
-                  <span className="font-serif-display text-deep/15 text-3xl font-bold leading-none group-hover:text-gold/40 transition-colors duration-500">
+                  <span className="font-assistant text-deep/15 text-3xl font-bold leading-none group-hover:text-gold/40 transition-colors duration-500 tabular-nums">
                     0{i + 1}
                   </span>
                 </div>

@@ -59,7 +59,7 @@ export default function PracticeAreasSection() {
                 <div className="w-12 h-12 flex items-center justify-center text-deep group-hover:text-gold transition-colors duration-500">
                   <area.icon size={28} strokeWidth={1.5} />
                 </div>
-                <span className="font-serif-display text-deep/15 text-sm tracking-[0.2em] font-medium pt-2">
+                <span className="font-assistant text-deep/20 text-xs tracking-[0.25em] font-semibold pt-2 tabular-nums">
                   0{i + 1}
                 </span>
               </div>

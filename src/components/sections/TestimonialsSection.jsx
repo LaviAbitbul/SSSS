@@ -121,7 +121,7 @@ export default function TestimonialsSection() {
                     <WhatsAppBubble text={current.text} time={current.time} />
 
                     <div className="mt-5 flex items-center gap-3 justify-center">
-                      <div className="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center font-serif-display text-gold text-sm font-bold">
+                      <div className="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center font-assistant text-gold text-sm font-bold">
                         {current.initial}
                       </div>
                       <div className="font-assistant text-deep/55 text-xs">לקוח/ה — סוף תהליך</div>
@@ -166,9 +166,9 @@ export default function TestimonialsSection() {
               </div>
 
               {/* Counter */}
-              <div className="font-assistant text-deep/50 text-sm tabular-nums">
+              <div className="font-assistant text-deep/50 text-sm tabular-nums tracking-tight">
                 <span className="text-deep font-bold">{String(index + 1).padStart(2, '0')}</span>
-                <span className="mx-1">/</span>
+                <span className="mx-1.5 text-deep/30">/</span>
                 <span>{String(total).padStart(2, '0')}</span>
               </div>
             </div>

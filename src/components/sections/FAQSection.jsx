@@ -38,7 +38,7 @@ function FAQItem({ faq, index, open, onToggle }) {
         aria-expanded={open}
       >
         <div className="flex items-start gap-5 flex-1">
-          <span className="font-serif-display text-gold/60 text-sm tracking-[0.15em] font-medium pt-1.5 flex-shrink-0">
+          <span className="font-assistant text-gold/70 text-xs tracking-[0.25em] font-semibold pt-2 flex-shrink-0 tabular-nums">
             0{index + 1}
           </span>
           <h3 className="font-serif-display text-deep text-xl lg:text-2xl font-bold leading-snug group-hover:text-gold transition-colors duration-300">

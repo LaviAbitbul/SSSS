@@ -12,7 +12,6 @@ const navLinks = [
   { label: 'למה אני', href: '#why' },
   { label: 'המלצות', href: '#testimonials' },
   { label: 'תהליך העבודה', href: '#process' },
-  { label: 'מאמרים', href: '#blog' },
   { label: 'שאלות נפוצות', href: '#faq' },
   { label: 'צור קשר', href: '#contact' },
 ];
