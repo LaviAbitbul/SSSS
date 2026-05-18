@@ -66,7 +66,7 @@ export default function PracticeAreasSection() {
             דיני{' '}
             <span className="text-gold italic">משפחה</span>
           </h2>
-          <p className="font-assistant text-deep/60 text-base mt-6 max-w-xl mx-auto leading-relaxed">
+          <p className="font-assistant text-deep/75 text-base mt-6 max-w-xl mx-auto leading-relaxed">
             ליווי משפטי בתחומים הרגישים והמורכבים ביותר — תוך התאמה אישית לכל סיפור
           </p>
         </motion.div>
@@ -90,7 +90,7 @@ export default function PracticeAreasSection() {
                 {area.title}
               </h3>
               
-              <p className="font-assistant text-deep/65 text-sm leading-relaxed mb-4">
+              <p className="font-assistant text-deep/80 text-sm leading-relaxed mb-4">
                 {area.desc}
               </p>
 

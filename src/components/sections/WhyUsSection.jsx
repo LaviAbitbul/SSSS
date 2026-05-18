@@ -49,7 +49,7 @@ export default function WhyUsSection() {
               <span className="text-gold italic">בליווי שלי</span>
             </h2>
           </div>
-          <p className="font-assistant text-deep/70 text-base lg:text-lg leading-relaxed">
+          <p className="font-assistant text-deep/85 text-base lg:text-lg leading-relaxed">
             המטרה שלי היא לא רק לייצג אתכם משפטית, אלא גם לעזור לכם לעבור את התקופה הזו עם יותר סדר, יותר הבנה ותחושת ליווי אמיתית לאורך כל הדרך.
           </p>
         </motion.div>
@@ -72,7 +72,7 @@ export default function WhyUsSection() {
               <h3 className="font-playfair text-deep text-xl font-bold mb-3 group-hover:text-gold transition-colors duration-300">
                 {adv.title}
               </h3>
-              <p className="font-assistant text-deep/65 text-sm leading-relaxed">
+              <p className="font-assistant text-deep/80 text-sm leading-relaxed">
                 {adv.desc}
               </p>
 

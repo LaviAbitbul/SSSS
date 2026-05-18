@@ -99,7 +99,7 @@ export default function BlogSection() {
                   {article.title}
                 </h3>
 
-                <p className="font-assistant text-deep/65 text-sm leading-relaxed mb-5">
+                <p className="font-assistant text-deep/80 text-sm leading-relaxed mb-5">
                   {article.excerpt}
                 </p>
 

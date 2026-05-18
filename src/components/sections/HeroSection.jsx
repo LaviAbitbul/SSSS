@@ -159,7 +159,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.75 }}
-          className="font-assistant text-paper/60 text-lg lg:text-xl max-w-2xl leading-relaxed mb-12"
+          className="font-assistant text-paper/85 text-lg lg:text-xl max-w-2xl leading-relaxed mb-12"
         >
           ליווי רגיש ומקצועי בגירושין, אחריות הורית, מזונות וחלוקת רכוש — עם סדר, ביטחון ושקיפות.
         </motion.p>
@@ -180,7 +180,7 @@ export default function HeroSection() {
           </a>
           <button
             onClick={() => scrollTo('#about')}
-            className="font-assistant text-paper/70 text-sm hover:text-gold transition-colors flex items-center gap-2 group"
+            className="font-assistant text-paper/90 text-sm hover:text-gold transition-colors flex items-center gap-2 group"
           >
             <span className="w-8 h-px bg-paper/30 group-hover:bg-gold transition-colors" />
             קצת עליי
