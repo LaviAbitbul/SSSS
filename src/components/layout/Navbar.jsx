@@ -41,11 +41,18 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center gap-3">
-              <div className="flex flex-col leading-tight">
-                <span className="font-serif-display text-deep text-xl font-bold tracking-tight">נעמי בל גונן</span>
-                <span className="font-assistant text-deep/50 text-[10px] tracking-[0.25em] uppercase">משרד עורכי דין</span>
-              </div>
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="flex items-center"
+              aria-label="נעמי בל גונן - עורכת דין"
+            >
+              <img
+                src="https://media.base44.com/images/public/6a007126836a528637f76d81/2f35dae0f_image.png"
+                alt="נעמי בל גונן"
+                className="h-16 lg:h-20 w-auto object-contain"
+                style={{ filter: 'invert(1) brightness(0.15)' }}
+              />
             </a>
 
             {/* Desktop Nav */}

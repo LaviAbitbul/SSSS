@@ -11,7 +11,11 @@ export default function LegalPageLayout({ title, subtitle, lastUpdated, children
             <ArrowRight size={16} />
             <span>חזרה לעמוד הבית</span>
           </Link>
-          <div className="font-serif-display text-paper text-base font-bold">נעמי בל גונן</div>
+          <img
+            src="https://media.base44.com/images/public/6a007126836a528637f76d81/2f35dae0f_image.png"
+            alt="נעמי בל גונן"
+            className="h-14 w-auto object-contain"
+          />
         </div>
       </div>
 

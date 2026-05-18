@@ -50,9 +50,13 @@ export default function Footer() {
 
         {/* Top: Brand + back to top */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 pb-12 border-b border-paper/10">
-          <div>
-            <div className="font-serif-display text-paper text-3xl lg:text-4xl font-bold leading-none">נעמי בל גונן</div>
-            <div className="font-assistant text-paper/50 text-xs tracking-[0.2em] uppercase mt-2">עורכת דין · דיני משפחה · אילת</div>
+          <div className="flex flex-col items-start">
+            <img
+              src="https://media.base44.com/images/public/6a007126836a528637f76d81/2f35dae0f_image.png"
+              alt="נעמי בל גונן"
+              className="h-24 lg:h-28 w-auto object-contain -mr-4 lg:-mr-6"
+            />
+            <div className="font-assistant text-paper/50 text-xs tracking-[0.2em] uppercase mt-1">עורכת דין · דיני משפחה · אילת</div>
           </div>
 
           <button
