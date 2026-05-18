@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import { Phone, ArrowLeft } from 'lucide-react';
+import { Phone, ArrowLeft, Heart, Eye, Leaf } from 'lucide-react';
 
 const stats = [
-  { num: '20+', label: 'שנות ניסיון' },
-  { num: '500+', label: 'משפחות שליוויתי' },
-  { num: '100%', label: 'יחס אישי' },
+  { icon: Eye, num: '20+', label: 'שנות ניסיון' },
+  { icon: Heart, num: '500+', label: 'משפחות שליוויתי' },
+  { icon: Leaf, num: '100%', label: 'יחס אישי' },
 ];
 
 const scrollTo = (href) => {
@@ -40,17 +40,14 @@ export default function HeroSection() {
               'radial-gradient(ellipse 60% 50% at 15% 30%, rgba(197,160,89,0.10) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 85% 70%, rgba(12,24,49,0.04) 0%, transparent 60%)',
           }}
         />
-        {/* Vertical line accent */}
         <div className="absolute top-0 bottom-0 right-[8%] w-px bg-gradient-to-b from-transparent via-deep/10 to-transparent hidden lg:block" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20 lg:py-32">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-16 lg:py-32">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
-          {/* RIGHT (RTL = first) : Text */}
+          {/* Text */}
           <div className="lg:col-span-7 order-2 lg:order-1">
-
-            {/* Eyebrow */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -60,32 +57,29 @@ export default function HeroSection() {
               <span className="eyebrow">עו״ד נעמי בל גונן</span>
             </motion.div>
 
-            {/* Main headline with reveal mask */}
             <h1
               className="font-serif-display text-deep font-bold mb-7"
-              style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', lineHeight: '1.05' }}
+              style={{ fontSize: 'clamp(2.25rem, 6vw, 5.5rem)', lineHeight: '1.05' }}
             >
               <RevealLine delay={0.2}>לא רק עורכת דין —</RevealLine>
-              <RevealLine delay={0.4} className="italic" >
+              <RevealLine delay={0.4} className="italic">
                 <span style={{ color: '#0C1831' }}>מישהי </span>
                 <span style={{ color: '#C5A059' }}>שתהיה</span>
               </RevealLine>
-              <RevealLine delay={0.55} className="italic" >
+              <RevealLine delay={0.55} className="italic">
                 <span style={{ color: '#C5A059' }}>לצידך.</span>
               </RevealLine>
             </h1>
 
-            {/* Sub */}
             <motion.p
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.85 }}
-              className="font-assistant text-deep/70 text-lg lg:text-xl leading-relaxed mb-10 max-w-xl"
+              className="font-assistant text-deep/70 text-base lg:text-xl leading-relaxed mb-10 max-w-xl"
             >
               ליווי רגיש ומקצועי בגירושין, אחריות הורית, מזונות וחלוקת רכוש — עם סדר, ביטחון ושקיפות לאורך כל הדרך.
             </motion.p>
 
-            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
@@ -98,7 +92,6 @@ export default function HeroSection() {
               >
                 <Phone size={16} strokeWidth={2} />
                 <span>שיחת ייעוץ אישית</span>
-                <span className="w-0 h-px bg-paper transition-all duration-400 group-hover:w-5" />
               </a>
               <button
                 onClick={() => scrollTo('#about')}
@@ -109,12 +102,12 @@ export default function HeroSection() {
               </button>
             </motion.div>
 
-            {/* Stats row */}
+            {/* Stats — with background cards */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1.3 }}
-              className="grid grid-cols-3 gap-6 max-w-lg border-t border-deep/10 pt-8"
+              className="grid grid-cols-3 gap-3 sm:gap-4 max-w-2xl"
             >
               {stats.map((s, i) => (
                 <motion.div
@@ -122,11 +115,17 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 1.4 + i * 0.1 }}
+                  className="relative bg-white border border-deep/8 rounded-2xl p-4 sm:p-5 shadow-[0_10px_30px_-15px_rgba(12,24,49,0.12)] hover:border-gold/40 transition-colors duration-400"
                 >
-                  <div className="font-serif-display text-deep text-3xl lg:text-4xl font-bold leading-none mb-1.5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-7 h-7 rounded-full bg-gold/15 flex items-center justify-center">
+                      <s.icon size={14} className="text-gold" strokeWidth={2} />
+                    </div>
+                  </div>
+                  <div className="font-serif-display text-deep text-2xl sm:text-3xl lg:text-4xl font-bold leading-none mb-1.5">
                     {s.num}
                   </div>
-                  <div className="font-assistant text-deep/55 text-xs tracking-[0.1em] uppercase">
+                  <div className="font-assistant text-deep/55 text-[10px] sm:text-xs tracking-[0.05em]">
                     {s.label}
                   </div>
                 </motion.div>
@@ -134,7 +133,7 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* LEFT (RTL): Portrait */}
+          {/* Portrait */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -142,7 +141,6 @@ export default function HeroSection() {
             className="lg:col-span-5 order-1 lg:order-2 relative"
           >
             <div className="relative">
-              {/* Decorative frame line */}
               <motion.div
                 initial={{ opacity: 0, x: -20, y: 20 }}
                 animate={{ opacity: 1, x: 0, y: 0 }}
@@ -150,47 +148,13 @@ export default function HeroSection() {
                 className="absolute -bottom-5 -left-5 lg:-bottom-7 lg:-left-7 w-full h-full border border-gold rounded-[2rem] pointer-events-none hidden md:block"
               />
 
-              {/* Photo */}
               <div className="relative rounded-[2rem] overflow-hidden bg-deep shadow-[0_30px_80px_-20px_rgba(12,24,49,0.4)]" style={{ aspectRatio: '4/5' }}>
                 <img
                   src="https://media.base44.com/images/public/6a007126836a528637f76d81/781d34657_image.png"
                   alt="עו״ד נעמי בל גונן"
                   className="w-full h-full object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-deep/40 via-transparent to-transparent" />
-
-                {/* Floating experience tag */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 1.1 }}
-                  className="absolute -right-4 lg:-right-6 top-10 bg-paper rounded-full pl-6 pr-3 py-2.5 flex items-center gap-3 shadow-[0_15px_40px_-10px_rgba(12,24,49,0.25)]"
-                >
-                  <div>
-                    <div className="font-serif-display text-deep text-2xl font-bold leading-none">20+</div>
-                    <div className="font-assistant text-deep/60 text-[10px] tracking-wider uppercase mt-0.5">שנות ניסיון</div>
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-gold flex items-center justify-center text-deep font-bold text-sm">★</div>
-                </motion.div>
-
-                {/* Name tag at bottom */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.2 }}
-                  className="absolute bottom-5 left-5 right-5"
-                >
-                  <div className="bg-paper/95 backdrop-blur-md rounded-2xl px-5 py-3.5 flex items-center justify-between">
-                    <div>
-                      <div className="font-serif-display text-deep text-lg font-bold leading-tight">נעמי בל גונן</div>
-                      <div className="font-assistant text-deep/55 text-xs">עו״ד · דיני משפחה · אילת</div>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                      <span className="font-assistant text-green-700 text-[10px] font-medium">זמינה</span>
-                    </div>
-                  </div>
-                </motion.div>
+                <div className="absolute inset-0 bg-gradient-to-t from-deep/30 via-transparent to-transparent" />
               </div>
             </div>
           </motion.div>
@@ -202,7 +166,7 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 hidden lg:flex"
       >
         <div className="font-assistant text-deep/40 text-[10px] tracking-[0.3em] uppercase">גלילה</div>
         <motion.div

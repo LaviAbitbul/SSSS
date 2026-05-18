@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'המלצות', href: '#testimonials' },
   { label: 'תהליך', href: '#process' },
   { label: 'מאמרים', href: '#blog' },
+  { label: 'שו"ת', href: '#faq' },
   { label: 'צור קשר', href: '#contact' },
 ];
 
