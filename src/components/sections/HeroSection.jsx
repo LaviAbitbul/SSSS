@@ -1,6 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Star } from 'lucide-react';
+import { ChevronDown, Star, Instagram, Facebook } from 'lucide-react';
+
+const TikTokIcon = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/>
+  </svg>
+);
 
 export default function HeroSection() {
   const [shimmer, setShimmer] = useState(false);
@@ -51,7 +57,7 @@ export default function HeroSection() {
             style={{ borderRadius: '2px' }}
           >
             <Star size={12} fill="#C5A059" className="text-gold" />
-            <span className="font-assistant text-gold text-xs tracking-[0.2em] uppercase">עורכת דין | אילת</span>
+            <span className="font-assistant text-gold text-xs tracking-[0.2em] uppercase">עורכת דין לדיני משפחה</span>
             <Star size={12} fill="#C5A059" className="text-gold" />
           </motion.div>
 
@@ -64,7 +70,7 @@ export default function HeroSection() {
             style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}
           >
             עו"ד{' '}
-            <span className="text-gold">נעמי גונן</span>
+            <span className="text-gold">נעמי בל גונן</span>
           </motion.h1>
 
           <motion.div
@@ -81,7 +87,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="font-playfair text-paper/70 text-xl lg:text-2xl mb-4 font-medium"
           >
-            עורכת דין
+            עורכת דין לענייני משפחה
           </motion.p>
 
           <motion.p
@@ -90,8 +96,8 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.75 }}
             className="font-assistant text-paper/60 text-base lg:text-lg mb-10 leading-relaxed"
           >
-            דיני משפחה · גירושין · מזונות · משמורת<br />
-            דיני עבודה · פיטורין · הוצאה לפועל · פשיטת רגל
+            ליווי רגיש ומקצועי בתהליכי גירושין, אחריות הורית,<br />
+            מזונות, חלוקת רכוש והסכמים משפחתיים.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -116,26 +122,35 @@ export default function HeroSection() {
               className="inline-flex items-center justify-center gap-2 px-8 py-4 font-assistant font-semibold text-paper text-base border border-paper/30 hover:border-gold hover:text-gold transition-all duration-300"
               style={{ borderRadius: '2px' }}
             >
-              קרא עוד עלינו
+              קצת עליי
             </button>
           </motion.div>
 
-          {/* Trust indicators */}
+          {/* Social Links */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="flex items-center gap-6 mt-12"
+            className="flex items-center gap-4 mt-12"
           >
+            <span className="font-assistant text-paper/40 text-xs tracking-widest">עקבו אחריי</span>
+            <div className="w-8 h-px bg-paper/20" />
             {[
-              { num: 'X', label: 'שנות ניסיון' },
-              { num: 'X', label: 'תיקים מוצלחים' },
-              { num: 'X', label: 'שביעות רצון' },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="font-playfair text-gold text-2xl font-bold">{stat.num}</div>
-                <div className="font-assistant text-paper/50 text-xs">{stat.label}</div>
-              </div>
+              { icon: Instagram, href: 'https://www.instagram.com/neomi.bel.law', label: 'Instagram' },
+              { icon: TikTokIcon, href: 'https://www.tiktok.com/@neomi.bel.law', label: 'TikTok' },
+              { icon: Facebook, href: 'https://www.facebook.com/share/15tgCN25iEh/?mibextid=wwXIfr', label: 'Facebook' },
+            ].map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="w-9 h-9 border border-paper/20 flex items-center justify-center text-paper/60 hover:border-gold hover:text-gold transition-all duration-300"
+                style={{ borderRadius: '2px' }}
+              >
+                <s.icon size={15} />
+              </a>
             ))}
           </motion.div>
         </div>

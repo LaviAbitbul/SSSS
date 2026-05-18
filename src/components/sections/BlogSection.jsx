@@ -5,25 +5,25 @@ import { ArrowLeft, Clock } from 'lucide-react';
 const articles = [
   {
     img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80',
-    category: 'דיני משפחה',
-    title: 'מה כדאי לדעת לפני הגשת תביעת גירושין?',
-    excerpt: 'הליך הגירושין בישראל הוא מורכב ורב-שלבי. במאמר זה נסביר את השלבים העיקריים ומה חשוב להכין מראש.',
+    category: 'גירושין',
+    title: 'מה כדאי לדעת לפני שמתחילים בהליך גירושין?',
+    excerpt: 'הצעדים הראשונים, ההכנות החשובות ואיך אפשר לעבור את התהליך בצורה רגועה יותר וברורה יותר.',
     readTime: '5 דקות קריאה',
     date: 'מרץ 2025',
   },
   {
-    img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80',
-    category: 'דיני עבודה',
-    title: 'פוטרתם? כך תדעו אם זה חוקי ומה מגיע לכם',
-    excerpt: 'פיטורין שלא כדין הם תופעה נפוצה. דעו את הזכויות שלכם ואיך לתבוע פיצויים מלאים.',
+    img: 'https://images.unsplash.com/photo-1607582544420-bbcd5dcae5d2?w=600&q=80',
+    category: 'אחריות הורית',
+    title: 'איך לשמור על הקשר עם הילדים בתקופת פרידה',
+    excerpt: 'כשיש ילדים בתמונה — נדרשת רגישות מיוחדת. איך לבנות הסדר שמרגיש נכון והוגן לכולם.',
     readTime: '7 דקות קריאה',
     date: 'פברואר 2025',
   },
   {
-    img: 'https://images.unsplash.com/photo-1589992896404-efb56a4c9d5a?w=600&q=80',
-    category: 'הוצאה לפועל',
-    title: 'פשיטת רגל – הדרך לשיקום כלכלי',
-    excerpt: 'לא כל חוב חייב להיות כבד לנצח. גלו כיצד הליך חדלות פירעון יכול להיות נקודת ההתחלה לחיים חדשים.',
+    img: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80',
+    category: 'הסכמים',
+    title: 'הסכם ממון — למה זה לא רק לעשירים',
+    excerpt: 'הסכם ממון נכון יכול להגן על שני הצדדים ולמנוע מחלוקות בעתיד. מתי כדאי לערוך אחד?',
     readTime: '6 דקות קריאה',
     date: 'ינואר 2025',
   },
@@ -49,9 +49,9 @@ export default function BlogSection() {
               מאמרים <span className="text-gold">משפטיים</span>
             </h2>
             <div className="w-16 h-0.5 bg-gold mt-6" />
-            <div className="mt-4 inline-flex items-center gap-2 border border-yellow-500/50 bg-yellow-500/10 px-3 py-1.5" style={{ borderRadius: '2px' }}>
-              <span className="text-yellow-400 text-xs">⚠</span>
-              <span className="font-assistant text-yellow-400 text-xs">טיוטא — תוכן לדוגמה בלבד, יש להחליף לפני פרסום</span>
+            <div className="mt-4 inline-flex items-center gap-2 border border-gold/40 bg-gold/5 px-3 py-1.5" style={{ borderRadius: '2px' }}>
+              <span className="text-gold text-xs">✦</span>
+              <span className="font-assistant text-gold/80 text-xs">מאמרים לדוגמה — תוכן בהכנה</span>
             </div>
           </div>
           <a

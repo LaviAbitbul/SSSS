@@ -4,14 +4,11 @@ import { motion, useInView } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 
 const practiceOptions = [
-  'דיני משפחה',
   'גירושין',
-  'מזונות ומשמורת',
-  'דיני עבודה',
-  'פיטורין וזכויות עובדים',
-  'הוצאה לפועל',
-  'פשיטת רגל',
-  'נדל"ן וחוזים',
+  'אחריות הורית',
+  'מזונות',
+  'חלוקת רכוש',
+  'הסכמים משפחתיים',
   'אחר',
 ];
 
@@ -190,7 +187,7 @@ export default function ContactSection() {
               <div className="space-y-6">
                 {[
                   { icon: Phone, label: 'טלפון', value: '050-976-2087', href: 'tel:+972509762087' },
-                  { icon: Mail, label: 'אימייל', value: 'naomi@gonen-law.co.il', href: 'mailto:naomi@gonen-law.co.il' },
+                  { icon: Mail, label: 'אימייל', value: 'neomibel.law@gmail.com', href: 'mailto:neomibel.law@gmail.com' },
                   { icon: MapPin, label: 'כתובת', value: 'אילת, ישראל', href: null },
                   { icon: Clock, label: 'שעות פעילות', value: 'א׳-ה׳: 09:00–18:00\nשישי: 09:00–13:00', href: null },
                 ].map((item) => (

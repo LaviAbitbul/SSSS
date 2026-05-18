@@ -1,48 +1,48 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Users, Briefcase, Scale, Home, FileText, Gavel } from 'lucide-react';
+import { Users, Baby, Scale, Home, FileText, HeartHandshake } from 'lucide-react';
 
 const areas = [
   {
     icon: Users,
-    title: 'דיני משפחה וגירושין',
-    desc: 'ליווי מקצועי ואנושי בהליכי גירושין, גישור, הסכמי ממון ופרידה.',
-    insight: 'כל משפחה היא עולם בפני עצמה. אנחנו מקשיבים, מבינים ופועלים.',
+    title: 'גירושין',
+    desc: 'ליווי מקצועי ורגיש בהליכי גירושין — מהשיחה הראשונה ועד סיום ההליך.',
+    insight: 'אפשר לעבור את התהליך הזה רגוע יותר, ברור יותר ומדויק יותר.',
+    color: '#C5A059',
+  },
+  {
+    icon: Baby,
+    title: 'אחריות הורית',
+    desc: 'קביעת הסדרי שהות, אחריות הורית והגנה על הקשר עם הילדים.',
+    insight: 'כשיש ילדים בתמונה — נדרשת רגישות מיוחדת ומבט ארוך טווח.',
     color: '#C5A059',
   },
   {
     icon: Scale,
-    title: 'מזונות ומשמורת',
-    desc: 'הגנה על זכויות הילד וקביעת הסדרי שהות ומזונות הוגנים.',
-    insight: 'טובת הילד היא הנר המנחה בכל תיק שאנו מטפלים בו.',
-    color: '#C5A059',
-  },
-  {
-    icon: Briefcase,
-    title: 'דיני עבודה',
-    desc: 'ייצוג עובדים ומעסיקים בסכסוכי עבודה, פיטורין שלא כדין וזכויות עובדים.',
-    insight: 'כל עובד ראוי לקבל את מה שמגיע לו. אנחנו כאן להבטיח זאת.',
-    color: '#C5A059',
-  },
-  {
-    icon: Gavel,
-    title: 'הוצאה לפועל',
-    desc: 'ניהול הליכי גבייה, עיקולים, מימוש נכסים וייצוג בלשכות הוצאה לפועל.',
-    insight: 'ניסיון רב בהליכי גבייה אפקטיביים ומהירים.',
-    color: '#C5A059',
-  },
-  {
-    icon: FileText,
-    title: 'פשיטת רגל',
-    desc: 'הליכי חדלות פירעון, שיקום כלכלי, מחיקת חובות ותוכניות הבראה.',
-    insight: 'גם בנקודת הנמוך ביותר, יש דרך קדימה. אנחנו נמצא אותה יחד.',
+    title: 'מזונות',
+    desc: 'קביעת מזונות ילדים ומזונות אישה — באופן הוגן, מאוזן ובר-קיימא.',
+    insight: 'הסדר נכון הוא כזה שמרגיש נכון והוגן לכל הצדדים.',
     color: '#C5A059',
   },
   {
     icon: Home,
-    title: 'נדל"ן וחוזים',
-    desc: 'ליווי עסקאות נדל"ן, בדיקת חוזים, רישום זכויות ופתרון מחלוקות.',
-    insight: 'כל עסקה מחייבת בדיקה מדוקדקת לפני החתימה.',
+    title: 'חלוקת רכוש',
+    desc: 'איזון משאבים, חלוקת נכסים, דירת המגורים וזכויות פנסיוניות.',
+    insight: 'דורש סדר, שקיפות והבנה של התמונה המלאה.',
+    color: '#C5A059',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'הסכמים משפחתיים',
+    desc: 'הסכמי ממון, הסכמי חיים משותפים, הסכמי גירושין והסכמי הורות.',
+    insight: 'הסכם טוב נבנה מתוך הקשבה — לא מתוך מאבק.',
+    color: '#C5A059',
+  },
+  {
+    icon: FileText,
+    title: 'נושאים נוספים בדיני משפחה',
+    desc: 'ייצוג בהליכים נוספים בדיני משפחה — בהתאמה אישית לכל סיפור.',
+    insight: 'כל משפחה היא עולם בפני עצמו, וכל מקרה מקבל מענה מותאם.',
     color: '#C5A059',
   },
 ];
@@ -61,14 +61,14 @@ export default function PracticeAreasSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="font-assistant text-gold text-sm tracking-[0.3em] uppercase block mb-4">המומחיות שלנו</span>
+          <span className="font-assistant text-gold text-sm tracking-[0.3em] uppercase block mb-4">התחום שלי</span>
           <h2 className="font-playfair text-paper text-4xl lg:text-5xl">
-            תחומי{' '}
-            <span className="text-gold">עיסוק</span>
+            דיני{' '}
+            <span className="text-gold">משפחה</span>
           </h2>
           <div className="w-16 h-0.5 bg-gold mx-auto mt-6" />
           <p className="font-assistant text-paper/60 text-base mt-6 max-w-xl mx-auto leading-relaxed">
-            ייצוג מקצועי ומסור בכל תחומי הדין הרלוונטיים לחייכם
+            ליווי משפטי בתחומים הרגישים והמורכבים ביותר — תוך התאמה אישית לכל סיפור
           </p>
         </motion.div>
 

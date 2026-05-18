@@ -1,27 +1,27 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { UserCheck, Clock, Eye, TrendingUp } from 'lucide-react';
+import { Heart, Eye, Shield, Leaf } from 'lucide-react';
 
 const advantages = [
   {
-    icon: UserCheck,
-    title: 'ליווי אישי',
-    desc: 'כל לקוח מקבל תשומת לב מלאה. עו"ד גונן עצמה תלווה את התיק שלכם מהתחלה ועד הסוף.',
-  },
-  {
-    icon: Clock,
-    title: 'זמינות 24/7',
-    desc: 'שעת חירום משפטית? אנחנו כאן. זמינות מלאה גם מחוץ לשעות העבודה המסורתיות.',
+    icon: Heart,
+    title: 'יחס אנושי',
+    desc: 'מקום בטוח לשאול, להתלבט ולפרוק — לצד ליווי מקצועי, קשוב ומכבד.',
   },
   {
     icon: Eye,
-    title: 'שקיפות מלאה',
-    desc: 'עדכונים שוטפים, הסברים ברורים ועלויות ידועות מראש. אין הפתעות.',
+    title: 'הבנה מההתחלה',
+    desc: 'אני דואגת שתבינו את הזכויות והאפשרויות שלכם — כדי לקבל החלטות מתוך ביטחון.',
   },
   {
-    icon: TrendingUp,
-    title: 'תשלום לפי תוצאה',
-    desc: 'במקרים מסוימים, מאמינים בכם – ומוכנים לשאת בסיכון יחד איתכם.',
+    icon: Leaf,
+    title: 'גישה שקולה',
+    desc: 'לא כל תהליך חייב להיות לוחמני. אפשר לעשות את זה בצורה רגועה ומדויקת.',
+  },
+  {
+    icon: Shield,
+    title: 'התמקדות בילדים',
+    desc: 'כשיש ילדים ומשפחה בתמונה — נדרשת רגישות מיוחדת ומבט ארוך טווח.',
   },
 ];
 
@@ -43,16 +43,16 @@ export default function WhyUsSection() {
           className="grid lg:grid-cols-2 gap-12 items-center mb-20"
         >
           <div>
-            <span className="font-assistant text-gold text-sm tracking-[0.3em] uppercase block mb-4">היתרון שלנו</span>
+            <span className="font-assistant text-gold text-sm tracking-[0.3em] uppercase block mb-4">הגישה שלי</span>
             <h2 className="font-playfair text-deep text-4xl lg:text-5xl leading-tight">
               למה לבחור<br />
-              <span className="text-gold">במשרד שלנו</span>
+              <span className="text-gold">בליווי שלי</span>
             </h2>
             <div className="w-16 h-0.5 bg-gold mt-6" />
           </div>
           <div>
             <p className="font-assistant text-deep/70 text-base leading-relaxed">
-              לא רק שירות משפטי – ליווי אישי בתקופה מאתגרת בחייכם. הגישה האישית, המקצועית והאמינה הפכה את עו"ד גונן לכתובת הראשונה עבור מאות לקוחות מאילת והסביבה.
+              המטרה שלי היא לא רק לייצג אתכם משפטית, אלא גם לעזור לכם לעבור את התקופה הזו עם יותר סדר, יותר הבנה ותחושת ליווי אמיתית לאורך כל הדרך.
             </p>
           </div>
         </motion.div>
@@ -99,10 +99,10 @@ export default function WhyUsSection() {
           <div className="absolute top-0 left-0 w-full h-px bg-gold" />
           <div className="absolute bottom-0 left-0 w-full h-px bg-gold" />
           <h3 className="font-playfair text-paper text-3xl mb-4">
-            מוכן לייעוץ ראשוני <span className="text-gold">חינם</span>?
+            רוצים לדבר? <span className="text-gold">אני כאן</span>
           </h3>
           <p className="font-assistant text-paper/60 text-base mb-8 max-w-lg mx-auto">
-            השלב הראשון הוא השיחה. צלצלו עכשיו ונבנה יחד את האסטרטגיה הנכונה לכם.
+            השלב הראשון הוא השיחה. בלי התחייבות, בלי לחץ — פשוט שיחה להבין את התמונה.
           </p>
           <a
             href="tel:+972509762087"

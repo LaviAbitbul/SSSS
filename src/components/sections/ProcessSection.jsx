@@ -6,26 +6,26 @@ const steps = [
   {
     num: '01',
     icon: MessageCircle,
-    title: 'פנייה ראשונית',
-    desc: 'צרו קשר טלפונית, בוואטסאפ או דרך הפורם באתר. כל שיחה מתקבלת בדיסקרטיות מלאה.',
+    title: 'שיחת היכרות',
+    desc: 'פנייה ראשונית בטלפון או בוואטסאפ. שיחה קצרה להכיר ולהבין במה אפשר לעזור.',
   },
   {
     num: '02',
     icon: Lightbulb,
-    title: 'ייעוץ חינם',
-    desc: 'פגישת ייעוץ ראשונה ללא עלות. נבין את המצב, נסביר את האפשרויות ונעריך את הסיכויים.',
+    title: 'פגישת ייעוץ',
+    desc: 'נשב יחד, אקשיב לסיפור שלכם ואסביר בצורה ברורה מה הזכויות והאפשרויות שעומדות בפניכם.',
   },
   {
     num: '03',
     icon: Target,
-    title: 'בניית אסטרטגיה',
-    desc: 'נבנה תוכנית פעולה מותאמת אישית לתיק שלכם, עם יעדים ברורים וציר זמן ריאלי.',
+    title: 'התאמת מסלול',
+    desc: 'נבנה יחד דרך פעולה שמתאימה בדיוק לסיפור שלכם — בלי לחץ, בלי בלבול, עם סדר ברור.',
   },
   {
     num: '04',
     icon: CheckCircle,
-    title: 'ליווי עד סיום',
-    desc: 'נלווה אתכם בכל שלב – ממשא ומתן ועד הכרעה, תוך עדכון שוטף לאורך כל הדרך.',
+    title: 'ליווי לאורך הדרך',
+    desc: 'אני לצידכם בכל שלב — עם עדכונים שוטפים, הסברים ברורים ותחושת ליווי אמיתית.',
   },
 ];
 
@@ -43,13 +43,13 @@ export default function ProcessSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          <span className="font-assistant text-gold text-sm tracking-[0.3em] uppercase block mb-4">הדרך לניצחון</span>
+          <span className="font-assistant text-gold text-sm tracking-[0.3em] uppercase block mb-4">איך עובדים יחד</span>
           <h2 className="font-playfair text-deep text-4xl lg:text-5xl">
             תהליך <span className="text-gold">העבודה</span>
           </h2>
           <div className="w-16 h-0.5 bg-gold mx-auto mt-6" />
           <p className="font-assistant text-deep/60 text-base mt-6 max-w-lg mx-auto">
-            תהליך ברור, שקוף ומתוכנן – כדי שתדעו בדיוק מה צפוי לכם בכל שלב
+            תהליך ברור ושקוף — כדי שתדעו בדיוק מה צפוי לכם בכל שלב.
           </p>
         </motion.div>
 

@@ -1,54 +1,23 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Shield, Award, Target } from 'lucide-react';
-
-function AnimatedCounter({ target, suffix = '', duration = 2 }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-100px' });
-
-  useEffect(() => {
-    if (!inView) return;
-    let start = 0;
-    const step = target / (duration * 60);
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 1000 / 60);
-    return () => clearInterval(timer);
-  }, [inView, target, duration]);
-
-  return <span ref={ref}>{count}{suffix}</span>;
-}
 
 const coreValues = [
   {
     icon: Shield,
-    title: 'מקצועיות',
-    desc: 'ניסיון רב שנים וידע משפטי מעמיק בכל תחום שאנו מטפלים בו.',
+    title: 'מקום בטוח',
+    desc: 'מרחב שבו אפשר לשאול, להתלבט ולפרוק — תוך יחס אנושי, קשוב ומכבד.',
   },
   {
     icon: Award,
-    title: 'אמינות',
-    desc: 'שקיפות מלאה לאורך כל ההליך המשפטי. אתם תמיד מעודכנים.',
+    title: 'הבנה מההתחלה',
+    desc: 'שקיפות מלאה על הזכויות והאפשרויות שלכם — כדי לקבל החלטות מתוך ביטחון.',
   },
   {
     icon: Target,
-    title: 'תוצאות',
-    desc: 'מחויבות לתוצאה המיטבית עבורכם בכל תיק ותיק.',
+    title: 'גישה שקולה',
+    desc: 'לא לוחמני כברירת מחדל. מדויק ורגיש — במיוחד כשיש ילדים בתמונה.',
   },
-];
-
-const stats = [
-  { label: 'תיקים שטופלו' },
-  { label: 'שנות ניסיון' },
-  { label: 'שביעות רצון' },
-  { label: 'פרסים מקצועיים' },
 ];
 
 export default function AboutSection() {
@@ -65,9 +34,9 @@ export default function AboutSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="font-assistant text-gold text-sm tracking-[0.3em] uppercase block mb-4">אודות המשרד</span>
+          <span className="font-assistant text-gold text-sm tracking-[0.3em] uppercase block mb-4">קצת עליי</span>
           <h2 className="font-playfair text-deep text-4xl lg:text-5xl gilded-line inline-block">
-            ניסיון, מחויבות, תוצאות
+            ליווי אנושי בתקופה רגישה
           </h2>
         </motion.div>
 
@@ -82,17 +51,17 @@ export default function AboutSection() {
           >
             <div className="relative overflow-hidden" style={{ borderRadius: '2px' }}>
               <img
-                src="https://media.base44.com/images/public/6a007126836a528637f76d81/23bb3f543_image.png"
-                alt="עו&quot;ד נעמי גונן"
-                className="w-full h-[500px] object-cover object-top transition-transform duration-700 hover:scale-105"
+                src="https://media.base44.com/images/public/6a007126836a528637f76d81/35c0cc8c5_image.png"
+                alt="עו&quot;ד נעמי בל גונן"
+                className="w-full h-[600px] object-cover object-top transition-transform duration-700 hover:scale-105"
               />
               {/* Gold frame accent */}
               <div className="absolute inset-0 border border-gold/20 pointer-events-none" />
             </div>
-            {/* Floating card */}
-            <div className="absolute -bottom-8 -left-8 bg-deep text-paper px-8 py-6 shadow-2xl" style={{ borderRadius: '2px' }}>
-              <div className="font-playfair text-gold text-4xl font-bold leading-none">X</div>
-              <div className="font-assistant text-paper/70 text-sm mt-1">שנות ניסיון</div>
+            {/* Floating signature card */}
+            <div className="absolute -bottom-8 -left-8 bg-deep text-paper px-8 py-6 shadow-2xl max-w-[220px]" style={{ borderRadius: '2px' }}>
+              <div className="font-playfair text-gold text-lg font-bold leading-tight">עו"ד נעמי בל גונן</div>
+              <div className="font-assistant text-paper/70 text-xs mt-1">דיני משפחה · אילת</div>
             </div>
             {/* Gold corner accent */}
             <div className="absolute -top-4 -right-4 w-16 h-16 border-t-2 border-r-2 border-gold" />
@@ -106,14 +75,20 @@ export default function AboutSection() {
             className="order-1 lg:order-2"
           >
             <h3 className="font-playfair text-deep text-3xl mb-6">
-              עו"ד נעמי גונן
+              עו"ד נעמי בל גונן
             </h3>
             <div className="w-12 h-0.5 bg-gold mb-6" />
-            <p className="font-assistant text-deep/70 leading-relaxed mb-6 text-base">
-              עורכת דין נעמי גונן היא אחת מעורכות הדין המובילות באילת, עם ניסיון של למעלה מ-15 שנה בייצוג לקוחות בתיקים משפטיים מורכבים. בוגרת הפקולטה למשפטים, התמחתה בדיני משפחה ודיני עבודה.
+            <p className="font-assistant text-deep/80 leading-relaxed mb-5 text-base">
+              היי, אני נעמי בל גונן, עורכת דין לענייני משפחה. אני מלווה אנשים ומשפחות בתקופות שהן לרוב מהמורכבות, הרגישות והמטלטלות ביותר בחיים — מתוך אמונה שגם בתוך חוסר הוודאות, אפשר לעבור את התהליך בצורה אחרת. רגועה יותר, ברורה יותר ומדויקת יותר.
+            </p>
+            <p className="font-assistant text-deep/70 leading-relaxed mb-5 text-base">
+              אחד הדברים שהכי חשובים לי הוא שאנשים יבינו את הזכויות שלהם כבר מההתחלה. הרבה פעמים, דווקא חוסר הידע והפחד מהלא נודע הם מה שהופכים את התקופה לקשה יותר. כאשר מבינים את התמונה בצורה נכונה, אפשר לקבל החלטות מתוך ביטחון ולא מתוך לחץ, פחד או בלבול.
+            </p>
+            <p className="font-assistant text-deep/70 leading-relaxed mb-5 text-base">
+              חשוב לי שכל אדם שמגיע אליי ירגיש שיש לו מקום בטוח. מקום שאפשר לשאול בו שאלות, להתלבט, לפרוק, להבין מה האפשרויות שעומדות בפניו — ולקבל ליווי מקצועי לצד יחס אנושי, קשוב ומכבד.
             </p>
             <p className="font-assistant text-deep/70 leading-relaxed mb-8 text-base">
-              הגישה האישית, הקשובה והמקצועית שלה הפכה אותה לכתובת המרכזית עבור מאות לקוחות המחפשים ייצוג אמין ויעיל. עו"ד גונן מאמינה שכל לקוח ראוי לקבל את מירב תשומת הלב והמאמץ, תוך שמירה על כבודו ופרטיותו.
+              אני לא מאמינה שכל תהליך חייב להיות לוחמני. יש מקרים שבהם צריך לעמוד בצורה חד משמעית על הזכויות והאינטרסים של הלקוח — אבל יש גם דרך לעשות את זה בצורה שקולה, רגישה ומדויקת יותר, במיוחד כשיש ילדים ומשפחה בתמונה.
             </p>
 
             {/* Core Values */}
@@ -139,20 +114,21 @@ export default function AboutSection() {
           </motion.div>
         </div>
 
-        {/* Stats Counter */}
+        {/* Closing Quote */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gold/20 border border-gold/20"
+          className="bg-deep p-10 lg:p-14 text-center relative overflow-hidden"
           style={{ borderRadius: '2px' }}
         >
-          {stats.map((stat) => (
-            <div key={stat.label} className="bg-paper text-center py-10 px-6">
-              <div className="font-playfair text-gold text-4xl lg:text-5xl font-bold mb-2">X</div>
-              <div className="font-assistant text-deep/60 text-sm">{stat.label}</div>
-            </div>
-          ))}
+          <div className="absolute top-0 left-0 w-full h-px bg-gold" />
+          <div className="absolute bottom-0 left-0 w-full h-px bg-gold" />
+          <span className="font-playfair text-gold text-6xl leading-none block mb-4">״</span>
+          <p className="font-playfair text-paper text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto italic">
+            המטרה שלי היא לא רק לייצג אתכם משפטית — אלא גם לעזור לכם לעבור את התקופה הזו עם יותר סדר, יותר הבנה ותחושת ליווי אמיתית לאורך כל הדרך.
+          </p>
+          <div className="font-assistant text-gold text-sm mt-6 tracking-widest">— נעמי בל גונן</div>
         </motion.div>
       </div>
     </section>
