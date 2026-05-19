@@ -1,6 +1,6 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, ArrowLeft, Heart, Eye, Leaf, Sparkles, Award, Star, Play, X } from 'lucide-react';
+import { Phone, ArrowLeft, Heart, Eye, Leaf, Sparkles, Award, Star, Play, X, Loader2 } from 'lucide-react';
 import AnimatedNumber from '@/components/ui/AnimatedNumber';
 
 const VIDEO_URL = 'https://media.base44.com/videos/public/6a007126836a528637f76d81/7c3abacca_SIRTON.mp4';
@@ -34,15 +34,43 @@ function RevealLine({ children, delay = 0, className = '' }) {
 
 export default function HeroSection() {
   const [playing, setPlaying] = useState(false);
+  const [loading, setLoading] = useState(false);
   const videoRef = useRef(null);
+  const preloadRef = useRef(null);
+
+  // Background prefetch — start loading video silently after hero loads
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!preloadRef.current) {
+        const video = document.createElement('video');
+        video.src = VIDEO_URL;
+        video.preload = 'auto';
+        video.muted = true;
+        video.style.display = 'none';
+        document.body.appendChild(video);
+        preloadRef.current = video;
+      }
+    }, 2500); // wait for hero animations to finish
+
+    return () => {
+      clearTimeout(timer);
+      if (preloadRef.current) {
+        preloadRef.current.remove();
+        preloadRef.current = null;
+      }
+    };
+  }, []);
 
   const handlePlay = () => {
     setPlaying(true);
-    setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.play().catch(() => {});
-      }
-    }, 50);
+    setLoading(true);
+  };
+
+  const handleCanPlay = () => {
+    setLoading(false);
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
   };
 
   const handleClose = () => {
@@ -51,6 +79,7 @@ export default function HeroSection() {
       videoRef.current.currentTime = 0;
     }
     setPlaying(false);
+    setLoading(false);
   };
 
   return (
@@ -271,10 +300,31 @@ export default function HeroSection() {
                         src={VIDEO_URL}
                         controls
                         playsInline
-                        preload="metadata"
+                        preload="auto"
                         className="w-full h-full object-cover"
                         onEnded={handleClose}
+                        onCanPlay={handleCanPlay}
+                        onWaiting={() => setLoading(true)}
+                        onPlaying={() => setLoading(false)}
                       />
+
+                      {/* Loading spinner */}
+                      <AnimatePresence>
+                        {loading && (
+                          <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="absolute inset-0 flex items-center justify-center bg-deep/40 backdrop-blur-sm pointer-events-none"
+                          >
+                            <div className="flex flex-col items-center gap-3">
+                              <Loader2 size={36} className="text-gold animate-spin" strokeWidth={2} />
+                              <span className="font-assistant text-paper/90 text-xs tracking-[0.2em] uppercase">טוען סרטון</span>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+
                       {/* Close button */}
                       <button
                         onClick={handleClose}
