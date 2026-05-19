@@ -253,36 +253,29 @@ export default function HeroSection() {
                         alt="עו״ד נעמי בל גונן"
                         className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-deep/60 via-deep/10 to-deep/20" />
+                      {/* Soft gradient only at bottom — keeps face visible */}
+                      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-deep/70 via-deep/20 to-transparent" />
 
-                      {/* Play button — center */}
+                      {/* Elegant play pill — bottom right, doesn't cover face */}
                       <motion.div
-                        initial={{ scale: 0.9, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 0.6, delay: 1.6 }}
-                        className="absolute inset-0 flex items-center justify-center"
-                      >
-                        <div className="relative">
-                          {/* Pulsing ring */}
-                          <span className="absolute inset-0 rounded-full bg-gold/40 animate-ping" style={{ animationDuration: '2.5s' }} />
-                          <span className="absolute -inset-2 rounded-full bg-gold/20 animate-ping" style={{ animationDuration: '3s', animationDelay: '0.3s' }} />
-
-                          {/* Main button */}
-                          <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gold flex items-center justify-center shadow-[0_15px_40px_-5px_rgba(197,160,89,0.6)] group-hover:scale-110 transition-transform duration-500">
-                            <Play size={32} className="text-deep mr-[-4px]" strokeWidth={2} fill="#0C1831" />
-                          </div>
-                        </div>
-                      </motion.div>
-
-                      {/* Label — bottom center */}
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 1.8 }}
-                        className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-deep/85 backdrop-blur-md px-5 py-2.5 rounded-full border border-paper/15 shadow-lg"
+                        transition={{ duration: 0.7, delay: 1.6 }}
+                        className="absolute bottom-5 right-5 sm:bottom-6 sm:right-6 flex items-center gap-3"
                       >
-                        <div className="flex items-center gap-2">
-                          <span className="font-assistant text-paper text-sm font-medium whitespace-nowrap">צפו בסרטון · מי אני</span>
+                        <div className="relative flex items-center gap-2.5 bg-paper/95 backdrop-blur-md pl-2 pr-4 py-2 rounded-full shadow-[0_15px_40px_-8px_rgba(12,24,49,0.45)] border border-paper/40 group-hover:bg-gold group-hover:border-gold transition-all duration-500">
+                          {/* Pulsing dot */}
+                          <span className="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75" />
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-gold border border-paper" />
+                          </span>
+
+                          <div className="w-8 h-8 rounded-full bg-deep flex items-center justify-center group-hover:bg-deep transition-colors duration-500">
+                            <Play size={13} className="text-gold mr-[-2px] group-hover:text-gold transition-colors" strokeWidth={2.5} fill="currentColor" />
+                          </div>
+                          <span className="font-assistant text-deep text-xs sm:text-sm font-bold whitespace-nowrap group-hover:text-deep transition-colors">
+                            צפו בסרטון
+                          </span>
                         </div>
                       </motion.div>
                     </motion.button>
