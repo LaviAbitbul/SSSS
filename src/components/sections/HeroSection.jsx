@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, ArrowLeft, Heart, Eye, Leaf, Sparkles, Star, Play, X, Loader2 } from 'lucide-react';
 import AnimatedNumber from '@/components/ui/AnimatedNumber';
 
-const VIDEO_URL = 'https://media.base44.com/videos/public/6a007126836a528637f76d81/7c3abacca_SIRTON.mp4';
+const VIDEO_URL = 'https://media.base44.com/videos/public/6a007126836a528637f76d81/9937f5fc9_SIRTON1.mp4';
 
 const stats = [
   { icon: Eye, num: '20+', label: 'שנות ניסיון' },
