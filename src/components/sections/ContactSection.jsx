@@ -1,6 +1,11 @@
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Phone, MapPin, Clock, Send, CheckCircle, MessageCircle } from 'lucide-react';
+import { Phone, MapPin, Clock, Send, CheckCircle, MessageCircle, Navigation } from 'lucide-react';
+
+const OFFICE = { lat: 29.5577, lng: 34.9519, address: 'שדרות חטיבת הנגב 27, אילת' };
+const wazeUrl = `https://waze.com/ul?ll=${OFFICE.lat},${OFFICE.lng}&navigate=yes`;
+const gmapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${OFFICE.lat},${OFFICE.lng}`;
+const mapImageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${OFFICE.lat},${OFFICE.lng}&zoom=15&size=600x300&scale=2&maptype=roadmap&markers=color:0xC5A059%7C${OFFICE.lat},${OFFICE.lng}`;
 
 const practiceOptions = [
   'גירושין',
@@ -177,12 +182,64 @@ export default function ContactSection() {
             </a>
 
             <div className="bg-cream/40 border border-deep/5 p-7 sm:p-8 rounded-3xl">
-              <h3 className="font-serif-display text-deep text-xl sm:text-2xl font-bold mb-7">פרטי יצירת קשר</h3>
+              <h3 className="font-serif-display text-deep text-xl sm:text-2xl font-bold mb-6">פרטי יצירת קשר</h3>
+
+              {/* Compact map preview with navigate buttons */}
+              <a
+                href={gmapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="פתח במפות Google"
+                className="relative block rounded-2xl overflow-hidden border border-deep/8 mb-6 group h-32"
+              >
+                <img
+                  src={mapImageUrl}
+                  alt="מפת מיקום המשרד"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                />
+                {/* Fallback gradient background (shows if map image fails) */}
+                <div className="absolute inset-0 -z-10 bg-gradient-to-br from-cream to-deep/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-deep/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-gold flex items-center justify-center shadow-lg">
+                    <MapPin size={18} className="text-deep" fill="#0C1831" strokeWidth={1.5} />
+                  </div>
+                </div>
+                <div className="absolute bottom-2 right-2 left-2 flex items-center justify-between gap-2">
+                  <span className="font-assistant text-paper text-[11px] font-medium bg-deep/70 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                    פתח במפות
+                  </span>
+                </div>
+              </a>
+
+              {/* Navigate buttons */}
+              <div className="flex gap-2 mb-6">
+                <a
+                  href={wazeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 bg-gold text-deep px-3 py-2 rounded-full text-xs font-assistant font-bold hover:brightness-105 transition-all"
+                >
+                  <Navigation size={12} strokeWidth={2.5} />
+                  Waze
+                </a>
+                <a
+                  href={gmapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 bg-deep text-paper px-3 py-2 rounded-full text-xs font-assistant font-medium hover:bg-deep-soft transition-all"
+                >
+                  <Navigation size={12} strokeWidth={2} />
+                  Google Maps
+                </a>
+              </div>
+
               <div className="space-y-5">
                 {[
                   { icon: Phone, label: 'טלפון', value: '050-976-2087' },
-                  { icon: MapPin, label: 'כתובת', value: 'אילת, ישראל' },
-                  { icon: Clock, label: 'שעות פעילות', value: 'א׳-ה׳: 09:00–18:00\nשישי: 09:00–13:00' },
+                  { icon: MapPin, label: 'כתובת', value: 'שדרות חטיבת הנגב 27, אילת' },
+                  { icon: Clock, label: 'שעות פעילות', value: 'א׳-ה׳: 09:00–18:00\nבתיאום מראש' },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-4 group">
                     <div className="flex-shrink-0 w-11 h-11 rounded-2xl bg-cream group-hover:bg-gold flex items-center justify-center transition-all duration-300">

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, ArrowLeft, Heart, Eye, Leaf, Sparkles, Award, Star, Play, X, Loader2 } from 'lucide-react';
+import { Phone, ArrowLeft, Heart, Eye, Leaf, Sparkles, Star, Play, X, Loader2 } from 'lucide-react';
 import AnimatedNumber from '@/components/ui/AnimatedNumber';
 
 const VIDEO_URL = 'https://media.base44.com/videos/public/6a007126836a528637f76d81/7c3abacca_SIRTON.mp4';
@@ -357,23 +357,6 @@ export default function HeroSection() {
                 <span className="font-assistant text-deep text-[11px] sm:text-xs font-bold whitespace-nowrap">דיני משפחה · אילת</span>
               </motion.div>
 
-              {/* Floating mini-card - bottom left: Award */}
-              <motion.div
-                initial={{ opacity: 0, x: -20, scale: 0.9 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                transition={{ duration: 0.8, delay: 1.5 }}
-                className="absolute bottom-8 left-0 sm:bottom-16 sm:-left-2 lg:-left-4 bg-white rounded-2xl p-2.5 sm:p-3 shadow-[0_15px_40px_-10px_rgba(12,24,49,0.3)] border border-deep/5 hidden sm:block z-20"
-              >
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-deep flex items-center justify-center flex-shrink-0">
-                    <Award size={16} className="text-gold sm:w-[18px] sm:h-[18px]" strokeWidth={1.8} />
-                  </div>
-                  <div className="pr-1">
-                    <div className="font-assistant text-deep text-xs font-bold leading-tight">לשכת עוה״ד</div>
-                    <div className="font-assistant text-deep/55 text-[10px] leading-tight">חברה רשומה</div>
-                  </div>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>

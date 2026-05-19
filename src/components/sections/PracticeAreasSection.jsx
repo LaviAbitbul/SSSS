@@ -23,21 +23,17 @@ export default function PracticeAreasSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20"
+          className="text-center max-w-3xl mx-auto mb-16 lg:mb-20"
         >
-          <div className="max-w-xl">
-            <span className="eyebrow mb-6 inline-flex">תחומי התמחות</span>
-            <h2
-              className="font-serif-display text-deep font-bold leading-[1.05] mt-6"
-              style={{ fontSize: 'clamp(2.25rem, 6vw, 5rem)' }}
-            >
-              דיני
-              <br />
-              <span style={{ color: '#C5A059' }}>משפחה</span>
-            </h2>
-            <div className="gold-accent" />
-          </div>
-          <p className="font-assistant text-deep/70 text-base lg:text-lg leading-[1.85] max-w-md">
+          <span className="eyebrow mb-6 inline-flex justify-center">תחומי התמחות</span>
+          <h2
+            className="font-serif-display text-deep font-bold leading-[1.05] mt-6"
+            style={{ fontSize: 'clamp(2.25rem, 6vw, 5rem)' }}
+          >
+            דיני <span style={{ color: '#C5A059' }}>משפחה</span>
+          </h2>
+          <div className="gold-accent gold-accent-center" />
+          <p className="font-assistant text-deep/70 text-base lg:text-lg leading-[1.85] max-w-2xl mx-auto mt-6">
             ליווי משפטי בתחומים הרגישים והמורכבים ביותר — תוך התאמה אישית לכל סיפור ומציאת הפתרון הנכון לכם.
           </p>
         </motion.div>

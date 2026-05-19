@@ -8,7 +8,6 @@ import WhyUsSection from '../components/sections/WhyUsSection';
 import TestimonialsSection from '../components/sections/TestimonialsSection';
 import ProcessSection from '../components/sections/ProcessSection';
 import ContactSection from '../components/sections/ContactSection';
-import LocationSection from '../components/sections/LocationSection';
 import FAQSection from '../components/sections/FAQSection';
 
 export default function Home() {
@@ -23,7 +22,6 @@ export default function Home() {
         <TestimonialsSection />
         <ProcessSection />
         <ContactSection />
-        <LocationSection />
         <FAQSection />
       </main>
       <Footer />

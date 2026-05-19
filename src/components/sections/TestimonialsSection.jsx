@@ -4,29 +4,13 @@ import { ChevronRight, ChevronLeft, Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    initial: 'ר',
     text: 'היי נעמי, רציתי להגיד לך תודה על הכל 🙏 הגעתי אלייך ממש אבוד ולא ידעתי איך להתמודד עם כל הסיטואציה הזאת ובאמת שעזרת לי לעשות סדר ולהירגע. זה לא מובן מאליו בכלל',
-    time: '22:31',
   },
   {
-    initial: 'מ',
     text: 'נעמי בוקר טוב, רק רציתי להגיד תודה. לא חשבתי שאפשר לעבור את זה בלי מלחמות ובסוף בזכותך הצלחנו להגיע להסכמות בצורה רגועה. מעריך מאוד 🙏',
-    time: '22:31',
   },
   {
-    initial: 'ע',
     text: 'נעמי תקשיבי ממש ממש תודה 🙏 היה לי הכי חשוב לא לפגוע בקשר עם הילדים והצלחת לעזור לי להגיע להסדר שמרגיש נכון והוגן. זה שווה הכל מבחינתי 🙏',
-    time: '22:30',
-  },
-  {
-    initial: 'ש',
-    text: 'תודה על הליווי לאורך כל הדרך. הייתי בטוחה שאני לבד בזה ולמעשה הרגשתי שיש לי מישהי שבאמת איתי. ממליצה בחום לכל אחת שעוברת תקופה כזו.',
-    time: '14:22',
-  },
-  {
-    initial: 'א',
-    text: 'מקצועיות, רגישות וסבלנות אינסופית. נעמי הסבירה לי כל שלב מההתחלה ועד הסוף ובסוף יצאתי עם תחושה שאני שולטת במה שקורה לי. תודה ענקית.',
-    time: '09:15',
   },
 ];
 
@@ -63,30 +47,6 @@ function TestimonialCard({ item, isCenter }) {
           {item.text}
         </p>
 
-        {/* Divider */}
-        <div
-          className={`h-px w-full mb-5 transition-colors duration-700 ${
-            isCenter ? 'bg-gold/30' : 'bg-deep/8'
-          }`}
-        />
-
-        {/* Footer: avatar + time */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center font-assistant text-sm font-bold transition-all duration-700 ${
-                isCenter ? 'bg-gold text-deep' : 'bg-cream text-deep/60'
-              }`}
-            >
-              {item.initial}
-            </div>
-            <div>
-              <div className="font-assistant text-deep text-sm font-medium">לקוח/ה</div>
-              <div className="font-assistant text-deep/45 text-[11px] tracking-wide">סוף תהליך</div>
-            </div>
-          </div>
-          <div className="font-assistant text-deep/40 text-[11px] tabular-nums">{item.time}</div>
-        </div>
       </div>
     </motion.div>
   );
@@ -230,14 +190,7 @@ export default function TestimonialsSection() {
           </div>
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="font-assistant text-deep/40 text-xs text-center mt-12 max-w-md mx-auto"
-        >
-          * שמות הלקוחות הוסתרו לשמירה על פרטיותם. ההודעות פורסמו באישורם.
-        </motion.p>
+
       </div>
     </section>
   );

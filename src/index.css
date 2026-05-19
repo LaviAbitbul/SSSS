@@ -307,6 +307,29 @@
   animation: gold-pulse 2.5s ease-in-out infinite;
 }
 
+/* ======== Accessibility Modes ======== */
+.a11y-high-contrast {
+  filter: contrast(1.4);
+}
+.a11y-high-contrast body {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+.a11y-underline-links a {
+  text-decoration: underline !important;
+}
+.a11y-highlight-links a {
+  background-color: #FFF59D !important;
+  color: #0C1831 !important;
+  padding: 2px 4px !important;
+  border-radius: 4px !important;
+}
+.a11y-readable-font,
+.a11y-readable-font * {
+  font-family: 'Arial', 'Assistant', sans-serif !important;
+  letter-spacing: 0.02em !important;
+}
+
 /* WhatsApp float button */
 .whatsapp-float {
   position: fixed;
