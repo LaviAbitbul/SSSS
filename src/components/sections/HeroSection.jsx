@@ -1,6 +1,9 @@
-import { motion } from 'framer-motion';
-import { Phone, ArrowLeft, Heart, Eye, Leaf, Sparkles, Award, Star } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Phone, ArrowLeft, Heart, Eye, Leaf, Sparkles, Award, Star, Play, X } from 'lucide-react';
 import AnimatedNumber from '@/components/ui/AnimatedNumber';
+
+const VIDEO_URL = 'https://media.base44.com/videos/public/6a007126836a528637f76d81/7c3abacca_SIRTON.mp4';
 
 const stats = [
   { icon: Eye, num: '20+', label: 'שנות ניסיון' },
@@ -30,6 +33,26 @@ function RevealLine({ children, delay = 0, className = '' }) {
 }
 
 export default function HeroSection() {
+  const [playing, setPlaying] = useState(false);
+  const videoRef = useRef(null);
+
+  const handlePlay = () => {
+    setPlaying(true);
+    setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.play().catch(() => {});
+      }
+    }, 50);
+  };
+
+  const handleClose = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+    setPlaying(false);
+  };
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-paper">
       {/* Soft warm background */}
@@ -179,17 +202,90 @@ export default function HeroSection() {
                 }}
               />
 
-              {/* Photo */}
+              {/* Photo / Video */}
               <div
-                className="relative rounded-[2rem] overflow-hidden bg-deep shadow-[0_30px_80px_-20px_rgba(12,24,49,0.4)]"
+                className="relative rounded-[2rem] overflow-hidden bg-deep shadow-[0_30px_80px_-20px_rgba(12,24,49,0.4)] group"
                 style={{ aspectRatio: '4/5' }}
               >
-                <img
-                  src="https://media.base44.com/images/public/6a007126836a528637f76d81/781d34657_image.png"
-                  alt="עו״ד נעמי בל גונן"
-                  className="w-full h-full object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-deep/40 via-transparent to-transparent" />
+                <AnimatePresence mode="wait">
+                  {!playing ? (
+                    <motion.button
+                      key="poster"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4 }}
+                      onClick={handlePlay}
+                      aria-label="צפו בסרטון מי אני"
+                      className="absolute inset-0 w-full h-full cursor-pointer focus:outline-none"
+                    >
+                      <img
+                        src="https://media.base44.com/images/public/6a007126836a528637f76d81/781d34657_image.png"
+                        alt="עו״ד נעמי בל גונן"
+                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-deep/60 via-deep/10 to-deep/20" />
+
+                      {/* Play button — center */}
+                      <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 1.6 }}
+                        className="absolute inset-0 flex items-center justify-center"
+                      >
+                        <div className="relative">
+                          {/* Pulsing ring */}
+                          <span className="absolute inset-0 rounded-full bg-gold/40 animate-ping" style={{ animationDuration: '2.5s' }} />
+                          <span className="absolute -inset-2 rounded-full bg-gold/20 animate-ping" style={{ animationDuration: '3s', animationDelay: '0.3s' }} />
+
+                          {/* Main button */}
+                          <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gold flex items-center justify-center shadow-[0_15px_40px_-5px_rgba(197,160,89,0.6)] group-hover:scale-110 transition-transform duration-500">
+                            <Play size={32} className="text-deep mr-[-4px]" strokeWidth={2} fill="#0C1831" />
+                          </div>
+                        </div>
+                      </motion.div>
+
+                      {/* Label — bottom center */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 1.8 }}
+                        className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-deep/85 backdrop-blur-md px-5 py-2.5 rounded-full border border-paper/15 shadow-lg"
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className="font-assistant text-paper text-sm font-medium whitespace-nowrap">צפו בסרטון · מי אני</span>
+                        </div>
+                      </motion.div>
+                    </motion.button>
+                  ) : (
+                    <motion.div
+                      key="video"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4 }}
+                      className="absolute inset-0 bg-deep"
+                    >
+                      <video
+                        ref={videoRef}
+                        src={VIDEO_URL}
+                        controls
+                        playsInline
+                        preload="metadata"
+                        className="w-full h-full object-cover"
+                        onEnded={handleClose}
+                      />
+                      {/* Close button */}
+                      <button
+                        onClick={handleClose}
+                        aria-label="סגור סרטון"
+                        className="absolute top-3 left-3 w-9 h-9 rounded-full bg-deep/80 backdrop-blur-md border border-paper/15 flex items-center justify-center text-paper hover:bg-gold hover:text-deep transition-all duration-300 z-10"
+                      >
+                        <X size={16} strokeWidth={2.5} />
+                      </button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               {/* Floating badge - top left: Star rating (positioned relative to wrapper, not photo) */}
