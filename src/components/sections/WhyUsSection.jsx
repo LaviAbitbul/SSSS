@@ -39,21 +39,17 @@ export default function WhyUsSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="grid lg:grid-cols-2 gap-12 items-end mb-20"
+          className="text-center max-w-3xl mx-auto mb-16 lg:mb-20"
         >
-          <div>
-            <span className="eyebrow mb-6 inline-flex">הגישה שלי</span>
-            <h2
-              className="font-serif-display text-deep font-bold leading-[1.05] mt-6"
-              style={{ fontSize: 'clamp(2.25rem, 6vw, 5rem)' }}
-            >
-              למה לבחור
-              <br />
-              <span style={{ color: '#C5A059' }}>בליווי שלי</span>
-            </h2>
-            <div className="gold-accent" />
-          </div>
-          <p className="font-assistant text-deep/70 text-lg leading-[1.85] lg:pb-3">
+          <span className="eyebrow mb-6 inline-flex justify-center">הגישה שלי</span>
+          <h2
+            className="font-serif-display text-deep font-bold leading-[1.05] mt-6"
+            style={{ fontSize: 'clamp(2.25rem, 6vw, 5rem)' }}
+          >
+            למה לבחור <span style={{ color: '#C5A059' }}>בליווי שלי</span>
+          </h2>
+          <div className="gold-accent gold-accent-center" />
+          <p className="font-assistant text-deep/70 text-base lg:text-lg leading-[1.85] max-w-2xl mx-auto mt-6">
             המטרה שלי היא לא רק לייצג אתכם משפטית, אלא גם לעזור לכם לעבור את התקופה הזו עם יותר סדר, יותר הבנה ותחושת ליווי אמיתית לאורך כל הדרך.
           </p>
         </motion.div>

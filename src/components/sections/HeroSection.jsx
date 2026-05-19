@@ -134,9 +134,7 @@ export default function HeroSection() {
                     }}
                   />
                 </span>
-              </RevealLine>
-              <RevealLine delay={0.55} className="italic">
-                <span style={{ color: '#C5A059' }}>לצידך.</span>
+                <span style={{ color: '#C5A059' }}> לצידך.</span>
               </RevealLine>
             </h1>
 
