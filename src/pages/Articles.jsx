@@ -1,10 +1,38 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen, Scale, Heart, Home as HomeIcon } from 'lucide-react';
+import PageHead from '@/components/seo/PageHead';
+import SeoSchema, { BUSINESS_INFO } from '@/components/seo/SeoSchema';
 
 export default function Articles() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'דיני משפחה בישראל — מה חשוב לדעת לפני שמתחילים את התהליך',
+    description: 'מדריך מקיף לדיני משפחה בישראל: גירושין, מזונות, אחריות הורית וחלוקת רכוש. נכתב על ידי עו״ד נעמי בל גונן.',
+    author: {
+      '@type': 'Person',
+      name: 'נעמי בל גונן',
+      url: `${BUSINESS_INFO.url}/about-naomi`,
+    },
+    publisher: {
+      '@type': 'LegalService',
+      name: BUSINESS_INFO.name,
+      logo: { '@type': 'ImageObject', url: BUSINESS_INFO.image },
+    },
+    image: BUSINESS_INFO.image,
+    inLanguage: 'he',
+    mainEntityOfPage: `${BUSINESS_INFO.url}/articles`,
+  };
+
   return (
     <div className="min-h-screen bg-paper" dir="rtl">
+      <PageHead
+        title='מאמרים — דיני משפחה בישראל | עו"ד נעמי בל גונן'
+        description='מאמרים ומדריכים מקצועיים בדיני משפחה: גירושין, מזונות, אחריות הורית וחלוקת רכוש. מאת עו"ד נעמי בל גונן, עורכת דין באילת.'
+        canonicalPath="/articles"
+      />
+      <SeoSchema id="article" data={articleSchema} />
       {/* Header */}
       <header className="border-b border-deep/10 bg-paper sticky top-0 z-50 backdrop-blur-md bg-paper/90">
         <div className="max-w-5xl mx-auto px-6 lg:px-12 py-5 flex items-center justify-between">
@@ -120,21 +148,22 @@ export default function Articles() {
       <section className="py-16 lg:py-20 bg-cream border-t border-deep/10">
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
           <h2 className="font-serif-display text-deep text-3xl lg:text-4xl font-bold mb-10 text-center">
-            תחומי התמחות נוספים
+            עוד מהמשרד
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {[
-              { icon: Scale, title: 'גירושין בהסכמה', desc: 'תהליך מהיר ומכובד שמסיים את הקשר הזוגי בהבנה ובלי קרבות מיותרים.' },
-              { icon: Heart, title: 'הסכמי ממון', desc: 'הגנה חכמה על העתיד הכלכלי של שני הצדדים — לפני ובמהלך הנישואין.' },
-              { icon: HomeIcon, title: 'משמורת ילדים', desc: 'הסדרים ברורים שמשרתים את טובת הילדים ושומרים על קשר בריא עם שני ההורים.' },
+              { to: '/lawyer-eilat', icon: Scale, title: 'עורך דין באילת', desc: 'ליווי משפטי אישי בעיר אילת ובסביבה — דיני משפחה, גירושין ועוד.' },
+              { to: '/divorce-lawyer', icon: Heart, title: 'עורך דין גירושין', desc: 'ייצוג מקצועי ורגיש בהליכי גירושין — בהסכמה ובמחלוקת.' },
+              { to: '/family-lawyer', icon: HomeIcon, title: 'עורך דין לענייני משפחה', desc: 'התמחות בכל סוגיות דיני המשפחה — מזונות, אחריות הורית, רכוש.' },
+              { to: '/about-naomi', icon: BookOpen, title: 'אודות נעמי בל גונן', desc: 'מעל 20 שנות ניסיון בייצוג משפחות. גישה אישית ומקצועית.' },
             ].map((item, i) => (
-              <div key={i} className="bg-paper p-7 rounded-2xl border border-deep/8 hover:border-gold/40 transition-colors">
+              <Link key={i} to={item.to} className="bg-paper p-7 rounded-2xl border border-deep/8 hover:border-gold/40 hover:shadow-soft transition-all group">
                 <div className="w-12 h-12 rounded-xl bg-gold/15 flex items-center justify-center mb-5">
                   <item.icon size={20} className="text-gold" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-serif-display text-deep text-xl font-bold mb-3">{item.title}</h3>
+                <h3 className="font-serif-display text-deep text-xl font-bold mb-3 group-hover:text-gold transition-colors">{item.title}</h3>
                 <p className="font-assistant text-deep/70 text-base leading-relaxed">{item.desc}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
