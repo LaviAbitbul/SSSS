@@ -94,7 +94,7 @@
   }
   .eyebrow::before {
     content: '';
-    width: 28px;
+    width: 12px;
     height: 1px;
     background: #C5A059;
   }
@@ -196,29 +196,25 @@
   .gold-accent {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
     margin-top: 1.75rem;
   }
   .gold-accent::before {
     content: '';
-    width: 56px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent 0%, #C5A059 50%, #D4B87A 100%);
-    border-radius: 2px;
+    width: 24px;
+    height: 1.5px;
+    background: #C5A059;
+    border-radius: 1px;
   }
   .gold-accent::after {
     content: '';
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
     background: #C5A059;
-    box-shadow: 0 0 0 4px rgba(197,160,89,0.15);
   }
   .gold-accent-center {
     justify-content: center;
-  }
-  .gold-accent-center::before {
-    width: 40px;
   }
 }
 

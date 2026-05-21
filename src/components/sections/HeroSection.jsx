@@ -107,7 +107,7 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="mb-6 sm:mb-8"
             >
-              <span className="eyebrow text-base sm:text-lg">עו״ד נעמי בל גונן</span>
+              <span className="eyebrow text-lg sm:text-2xl">עו״ד נעמי בל גונן</span>
             </motion.div>
 
             <h1

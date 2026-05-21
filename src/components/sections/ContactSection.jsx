@@ -239,7 +239,7 @@ export default function ContactSection() {
                 {[
                   { icon: Phone, label: 'טלפון', value: '050-976-2087' },
                   { icon: MapPin, label: 'כתובת', value: 'שדרות חטיבת הנגב 27, אילת' },
-                  { icon: Clock, label: 'שעות פעילות', value: 'א׳-ה׳: 09:00–18:00\nבתיאום מראש' },
+                  { icon: Clock, label: 'שעות פעילות', value: 'א׳-ה׳: 09:00-18:00\nבתיאום מראש' },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-4 group">
                     <div className="flex-shrink-0 w-11 h-11 rounded-2xl bg-cream group-hover:bg-gold flex items-center justify-center transition-all duration-300">
