@@ -1,0 +1,21 @@
+{
+  "name": "WhatsappClick",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "\u05de\u05d0\u05d9\u05e4\u05d4 \u05e0\u05dc\u05d7\u05e5 \u05d4\u05db\u05e4\u05ea\u05d5\u05e8 (contact_section, floating_button, \u05d5\u05db\u05d5\u05f3)"
+    },
+    "page_path": {
+      "type": "string",
+      "description": "\u05db\u05ea\u05d5\u05d1\u05ea \u05d4\u05d3\u05e3 \u05d1\u05d5 \u05e0\u05dc\u05d7\u05e5 \u05d4\u05db\u05e4\u05ea\u05d5\u05e8"
+    },
+    "user_agent": {
+      "type": "string",
+      "description": "\u05e4\u05e8\u05d8\u05d9 \u05d4\u05d3\u05e4\u05d3\u05e4\u05df \u05e9\u05dc \u05d4\u05de\u05e9\u05ea\u05de\u05e9"
+    }
+  },
+  "required": [
+    "source"
+  ]
+}

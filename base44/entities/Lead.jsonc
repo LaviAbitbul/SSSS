@@ -1,0 +1,36 @@
+{
+  "name": "Lead",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "\u05e9\u05dd \u05de\u05dc\u05d0"
+    },
+    "phone": {
+      "type": "string",
+      "description": "\u05de\u05e1\u05e4\u05e8 \u05d8\u05dc\u05e4\u05d5\u05df"
+    },
+    "area": {
+      "type": "string",
+      "description": "\u05ea\u05d7\u05d5\u05dd \u05d4\u05e4\u05e0\u05d9\u05d9\u05d4"
+    },
+    "message": {
+      "type": "string",
+      "description": "\u05ea\u05d9\u05d0\u05d5\u05e8 \u05d4\u05e4\u05e0\u05d9\u05d9\u05d4"
+    },
+    "source": {
+      "type": "string",
+      "default": "website_form",
+      "description": "\u05de\u05e7\u05d5\u05e8 \u05d4\u05dc\u05d9\u05d3"
+    },
+    "email_sent": {
+      "type": "boolean",
+      "default": false,
+      "description": "\u05d4\u05d0\u05dd \u05e0\u05e9\u05dc\u05d7 \u05d0\u05d9\u05de\u05d9\u05d9\u05dc \u05d4\u05ea\u05e8\u05d0\u05d4"
+    }
+  },
+  "required": [
+    "name",
+    "phone"
+  ]
+}

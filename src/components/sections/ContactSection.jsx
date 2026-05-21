@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Phone, MapPin, Clock, Send, CheckCircle, MessageCircle, Navigation } from 'lucide-react';
+import { base44 } from '@/api/base44Client';
 
 const OFFICE = { lat: 29.5577, lng: 34.9519, address: 'שדרות חטיבת הנגב 27, אילת' };
 const wazeUrl = `https://waze.com/ul?ll=${OFFICE.lat},${OFFICE.lng}&navigate=yes`;
@@ -28,9 +29,26 @@ export default function ContactSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
+    try {
+      await base44.functions.invoke('sendLeadEmail', form);
+    } catch (err) {
+      // Still save the lead even if email fails
+      await base44.entities.Lead.create({ ...form, source: 'website_form' });
+    }
     setSubmitted(true);
     setLoading(false);
+  };
+
+  const trackWhatsappClick = async () => {
+    try {
+      await base44.entities.WhatsappClick.create({
+        source: 'contact_section',
+        page_path: window.location.pathname,
+        user_agent: navigator.userAgent,
+      });
+    } catch (e) {
+      // Silent fail — don't block the click
+    }
   };
 
   const inputClass =
@@ -175,6 +193,7 @@ export default function ContactSection() {
               href="https://wa.me/972509762087"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={trackWhatsappClick}
               className="flex items-center justify-center gap-3 w-full bg-[#25D366] text-white font-assistant font-bold text-base py-5 rounded-full hover:bg-[#22c55e] transition-all hover:scale-[1.01] shadow-[0_15px_40px_-10px_rgba(37,211,102,0.5)]"
             >
               <MessageCircle size={20} fill="white" strokeWidth={0} />

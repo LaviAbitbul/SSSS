@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Heart, Eye, Shield, Leaf, MessageCircle, ArrowLeft } from 'lucide-react';
+import { base44 } from '@/api/base44Client';
 
 const advantages = [
   {
@@ -28,6 +29,18 @@ const advantages = [
 export default function WhyUsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const trackWhatsappClick = async () => {
+    try {
+      await base44.entities.WhatsappClick.create({
+        source: 'why_us_cta',
+        page_path: window.location.pathname,
+        user_agent: navigator.userAgent,
+      });
+    } catch (e) {
+      // Silent fail
+    }
+  };
 
   return (
     <section id="why" className="relative py-28 lg:py-40 overflow-hidden bg-cream" ref={ref}>
@@ -112,6 +125,7 @@ export default function WhyUsSection() {
               href="https://wa.me/972509762087"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={trackWhatsappClick}
               className="group inline-flex items-center gap-3 bg-gold text-deep px-7 py-4 font-assistant font-medium text-base rounded-full hover:bg-gold-light transition-all duration-400 whitespace-nowrap"
             >
               <MessageCircle size={17} strokeWidth={2} />

@@ -1,12 +1,26 @@
 import AccessibilityButton from './AccessibilityButton';
+import { base44 } from '@/api/base44Client';
 
 export default function FloatingButtons() {
+  const trackClick = async () => {
+    try {
+      await base44.entities.WhatsappClick.create({
+        source: 'floating_button',
+        page_path: window.location.pathname,
+        user_agent: navigator.userAgent,
+      });
+    } catch (e) {
+      // Silent fail — don't block the click
+    }
+  };
+
   return (
     <>
       <a
         href="https://wa.me/972509762087"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={trackClick}
         className="whatsapp-float"
         aria-label="צור קשר בוואטסאפ"
       >
