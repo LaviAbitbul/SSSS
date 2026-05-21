@@ -1,7 +1,5 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
-const RECIPIENT_EMAIL = 'neomibel.law@gmail.com';
-
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
@@ -11,6 +9,14 @@ Deno.serve(async (req) => {
 
     if (!name || !phone) {
       return Response.json({ error: 'Missing required fields' }, { status: 400 });
+    }
+
+    // Find the admin user (the app owner) to send the email to
+    const admins = await base44.asServiceRole.entities.User.filter({ role: 'admin' });
+    const recipientEmail = admins?.[0]?.email;
+
+    if (!recipientEmail) {
+      return Response.json({ error: 'No admin user found to receive emails' }, { status: 500 });
     }
 
     // Save the lead to the database
@@ -40,10 +46,10 @@ ${message || '(לא צוין)'}
 תאריך: ${new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' })}
 `.trim();
 
-    // Send notification email
+    // Send notification email to the admin
     await base44.asServiceRole.integrations.Core.SendEmail({
       from_name: 'אתר נעמי בל גונן',
-      to: RECIPIENT_EMAIL,
+      to: recipientEmail,
       subject: `פנייה חדשה מהאתר - ${name}`,
       body: emailBody,
     });
