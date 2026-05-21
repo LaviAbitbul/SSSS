@@ -3,12 +3,12 @@ import { motion, useInView } from 'framer-motion';
 import { Users, Baby, Scale, Home, FileText, HeartHandshake, ArrowLeft } from 'lucide-react';
 
 const areas = [
-  { icon: Users, title: 'גירושין', desc: 'ליווי מקצועי ורגיש בהליכי גירושין — מהשיחה הראשונה ועד סיום ההליך.' },
+  { icon: Users, title: 'גירושין', desc: 'ליווי מקצועי ורגיש בהליכי גירושין - מהשיחה הראשונה ועד סיום ההליך.' },
   { icon: Baby, title: 'אחריות הורית', desc: 'קביעת הסדרי שהות, אחריות הורית והגנה על הקשר עם הילדים.' },
-  { icon: Scale, title: 'מזונות', desc: 'קביעת מזונות ילדים ומזונות אישה — באופן הוגן, מאוזן ובר-קיימא.' },
+  { icon: Scale, title: 'מזונות', desc: 'קביעת מזונות ילדים ומזונות אישה - באופן הוגן, מאוזן ובר-קיימא.' },
   { icon: Home, title: 'חלוקת רכוש', desc: 'איזון משאבים, חלוקת נכסים, דירת המגורים וזכויות פנסיוניות.' },
   { icon: HeartHandshake, title: 'הסכמים משפחתיים', desc: 'הסכמי ממון, הסכמי חיים משותפים, הסכמי גירושין והסכמי הורות.' },
-  { icon: FileText, title: 'נושאים נוספים', desc: 'ייצוג בהליכים נוספים בדיני משפחה — בהתאמה אישית לכל סיפור.' },
+  { icon: FileText, title: 'נושאים נוספים', desc: 'ייצוג בהליכים נוספים בדיני משפחה - בהתאמה אישית לכל סיפור.' },
 ];
 
 export default function PracticeAreasSection() {
@@ -34,7 +34,7 @@ export default function PracticeAreasSection() {
           </h2>
           <div className="gold-accent gold-accent-center" />
           <p className="font-assistant text-deep/70 text-base lg:text-lg leading-[1.85] max-w-2xl mx-auto mt-6">
-            ליווי משפטי בתחומים הרגישים והמורכבים ביותר — תוך התאמה אישית לכל סיפור ומציאת הפתרון הנכון לכם.
+            ליווי משפטי בתחומים הרגישים והמורכבים ביותר - תוך התאמה אישית לכל סיפור ומציאת הפתרון הנכון לכם.
           </p>
         </motion.div>
 

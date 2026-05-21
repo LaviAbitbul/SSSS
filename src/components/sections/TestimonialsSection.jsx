@@ -113,7 +113,7 @@ export default function TestimonialsSection() {
           </h2>
           <div className="gold-accent gold-accent-center" />
           <p className="font-assistant text-deep/65 text-base lg:text-lg mt-6 leading-relaxed">
-            לא ביקורות, לא פרסומות — הודעות שהגיעו אליי בסיום התהליך.
+            לא ביקורות, לא פרסומות - הודעות שהגיעו אליי בסיום התהליך.
           </p>
         </motion.div>
 

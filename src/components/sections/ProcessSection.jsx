@@ -5,8 +5,8 @@ import { MessageCircle, Lightbulb, Target, CheckCircle } from 'lucide-react';
 const steps = [
   { icon: MessageCircle, title: 'שיחת היכרות', desc: 'פנייה ראשונית בטלפון או בוואטסאפ. שיחה קצרה להכיר ולהבין במה אפשר לעזור.' },
   { icon: Lightbulb, title: 'פגישת ייעוץ', desc: 'נשב יחד, אקשיב לסיפור שלכם ואסביר בצורה ברורה מה הזכויות והאפשרויות שעומדות בפניכם.' },
-  { icon: Target, title: 'התאמת מסלול', desc: 'נבנה יחד דרך פעולה שמתאימה בדיוק לסיפור שלכם — בלי לחץ, בלי בלבול, עם סדר ברור.' },
-  { icon: CheckCircle, title: 'ליווי לאורך הדרך', desc: 'אני לצידכם בכל שלב — עם עדכונים שוטפים, הסברים ברורים ותחושת ליווי אמיתית.' },
+  { icon: Target, title: 'התאמת מסלול', desc: 'נבנה יחד דרך פעולה שמתאימה בדיוק לסיפור שלכם - בלי לחץ, בלי בלבול, עם סדר ברור.' },
+  { icon: CheckCircle, title: 'ליווי לאורך הדרך', desc: 'אני לצידכם בכל שלב - עם עדכונים שוטפים, הסברים ברורים ותחושת ליווי אמיתית.' },
 ];
 
 export default function ProcessSection() {
@@ -32,7 +32,7 @@ export default function ProcessSection() {
           </h2>
           <div className="gold-accent gold-accent-center" />
           <p className="font-assistant text-deep/65 text-base sm:text-lg mt-6 leading-relaxed">
-            תהליך ברור ושקוף — כדי שתדעו בדיוק מה צפוי לכם בכל שלב.
+            תהליך ברור ושקוף - כדי שתדעו בדיוק מה צפוי לכם בכל שלב.
           </p>
         </motion.div>
 

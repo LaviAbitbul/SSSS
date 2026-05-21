@@ -107,7 +107,7 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="mb-6 sm:mb-8"
             >
-              <span className="eyebrow">עו״ד נעמי בל גונן</span>
+              <span className="eyebrow text-base sm:text-lg">עו״ד נעמי בל גונן</span>
             </motion.div>
 
             <h1
@@ -118,22 +118,7 @@ export default function HeroSection() {
               <RevealLine delay={0.4} className="italic">
                 <span style={{ color: '#0C1831' }}>מישהי </span>
                 {/* Underline highlight word */}
-                <span className="relative inline-block" style={{ color: '#0C1831' }}>
-                  <span className="relative z-10">שתהיה</span>
-                  <motion.span
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.9, delay: 1.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute right-0 bottom-1 left-0 origin-right pointer-events-none"
-                    style={{
-                      height: '14px',
-                      background: 'linear-gradient(90deg, transparent 0%, #C5A059 15%, #D4B87A 50%, #C5A059 85%, transparent 100%)',
-                      opacity: 0.55,
-                      zIndex: 1,
-                      borderRadius: '2px',
-                    }}
-                  />
-                </span>
+                <span style={{ color: '#0C1831' }}>שתהיה</span>
                 <span style={{ color: '#C5A059' }}> לצידך</span>
               </RevealLine>
             </h1>
