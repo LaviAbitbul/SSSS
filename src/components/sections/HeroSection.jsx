@@ -112,9 +112,9 @@ export default function HeroSection() {
 
             <h1
               className="font-serif-display text-deep font-bold mb-6 sm:mb-7"
-              style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', lineHeight: '1.05' }}
+              style={{ fontSize: 'clamp(2.75rem, 7vw, 6.5rem)', lineHeight: '1.05' }}
             >
-              <RevealLine delay={0.2}>לא רק עורכת דין —</RevealLine>
+              <RevealLine delay={0.2}>לא רק עורכת דין -</RevealLine>
               <RevealLine delay={0.4} className="italic">
                 <span style={{ color: '#0C1831' }}>מישהי </span>
                 {/* Underline highlight word */}
@@ -134,7 +134,7 @@ export default function HeroSection() {
                     }}
                   />
                 </span>
-                <span style={{ color: '#C5A059' }}> לצידך.</span>
+                <span style={{ color: '#C5A059' }}> לצידך</span>
               </RevealLine>
             </h1>
 
@@ -144,7 +144,7 @@ export default function HeroSection() {
               transition={{ duration: 0.9, delay: 0.85 }}
               className="font-assistant text-deep/70 text-base lg:text-xl leading-relaxed mb-8 sm:mb-10 max-w-xl"
             >
-              ליווי רגיש ומקצועי בגירושין, אחריות הורית, מזונות וחלוקת רכוש — עם סדר, ביטחון ושקיפות לאורך כל הדרך.
+              ליווי רגיש ומקצועי בגירושין, אחריות הורית, מזונות וחלוקת רכוש - עם סדר, ביטחון ושקיפות לאורך כל הדרך.
             </motion.p>
 
             <motion.div
